@@ -1,0 +1,492 @@
+{
+  "model": "google/gemma-4-12B-it",
+  "choice": "12b",
+  "n": 40,
+  "rec1": 1,
+  "rec5": 7,
+  "rec20": 24,
+  "distractor20": 20,
+  "distractor_total": 200,
+  "rows": [
+    {
+      "q": "Which gas makes up most of Earth's atmosphere?",
+      "a": "nitrogen",
+      "rank_true": 2,
+      "rank_distractors": [
+        19,
+        1000000,
+        914,
+        1372,
+        539
+      ]
+    },
+    {
+      "q": "What is the capital of France?",
+      "a": "Paris",
+      "rank_true": 19,
+      "rank_distractors": [
+        601,
+        1733,
+        359,
+        246,
+        135
+      ]
+    },
+    {
+      "q": "What is the capital of Japan?",
+      "a": "Tokyo",
+      "rank_true": 23,
+      "rank_distractors": [
+        4,
+        28,
+        76,
+        1220,
+        42
+      ]
+    },
+    {
+      "q": "What is the capital of Italy?",
+      "a": "Rome",
+      "rank_true": 6,
+      "rank_distractors": [
+        413,
+        12,
+        867,
+        844,
+        166
+      ]
+    },
+    {
+      "q": "What is the capital of Spain?",
+      "a": "Madrid",
+      "rank_true": 18,
+      "rank_distractors": [
+        412,
+        1589,
+        343,
+        812,
+        982
+      ]
+    },
+    {
+      "q": "What is the capital of Russia?",
+      "a": "Moscow",
+      "rank_true": 13,
+      "rank_distractors": [
+        1541,
+        1371,
+        13,
+        6,
+        111
+      ]
+    },
+    {
+      "q": "What is the capital of Egypt?",
+      "a": "Cairo",
+      "rank_true": 19,
+      "rank_distractors": [
+        156,
+        16,
+        1000000,
+        1722,
+        3
+      ]
+    },
+    {
+      "q": "What is the capital of Canada?",
+      "a": "Ottawa",
+      "rank_true": 6,
+      "rank_distractors": [
+        331,
+        201,
+        379,
+        1000000,
+        1740
+      ]
+    },
+    {
+      "q": "What is the capital of Germany?",
+      "a": "Berlin",
+      "rank_true": 1,
+      "rank_distractors": [
+        459,
+        1417,
+        18,
+        641,
+        15
+      ]
+    },
+    {
+      "q": "What is the capital of Greece?",
+      "a": "Athens",
+      "rank_true": 1,
+      "rank_distractors": [
+        456,
+        1000000,
+        288,
+        3,
+        1000000
+      ]
+    },
+    {
+      "q": "What is the capital of Portugal?",
+      "a": "Lisbon",
+      "rank_true": 9,
+      "rank_distractors": [
+        722,
+        1000000,
+        17,
+        53,
+        502
+      ]
+    },
+    {
+      "q": "What is the capital of Poland?",
+      "a": "Warsaw",
+      "rank_true": 30,
+      "rank_distractors": [
+        1164,
+        1430,
+        523,
+        419,
+        313
+      ]
+    },
+    {
+      "q": "What is the capital of Ireland?",
+      "a": "Dublin",
+      "rank_true": 6,
+      "rank_distractors": [
+        1441,
+        1000000,
+        457,
+        1000000,
+        356
+      ]
+    },
+    {
+      "q": "What is the capital of Norway?",
+      "a": "Oslo",
+      "rank_true": 30,
+      "rank_distractors": [
+        1600,
+        122,
+        10,
+        1000000,
+        1427
+      ]
+    },
+    {
+      "q": "What is the capital of Austria?",
+      "a": "Vienna",
+      "rank_true": 20,
+      "rank_distractors": [
+        9,
+        45,
+        1406,
+        65,
+        117
+      ]
+    },
+    {
+      "q": "What is the capital of Thailand?",
+      "a": "Bangkok",
+      "rank_true": 1,
+      "rank_distractors": [
+        1413,
+        25,
+        688,
+        523,
+        15
+      ]
+    },
+    {
+      "q": "What is the capital of Kenya?",
+      "a": "Nairobi",
+      "rank_true": 1,
+      "rank_distractors": [
+        13,
+        1000000,
+        1015,
+        1000000,
+        22
+      ]
+    },
+    {
+      "q": "What is the capital of Cuba?",
+      "a": "Havana",
+      "rank_true": 108,
+      "rank_distractors": [
+        7,
+        521,
+        1382,
+        965,
+        77
+      ]
+    },
+    {
+      "q": "What is the largest planet in the solar system?",
+      "a": "Jupiter",
+      "rank_true": 1,
+      "rank_distractors": [
+        344,
+        312,
+        374,
+        1339,
+        1000000
+      ]
+    },
+    {
+      "q": "Which planet is closest to the sun?",
+      "a": "Mercury",
+      "rank_true": 13,
+      "rank_distractors": [
+        1589,
+        1508,
+        412,
+        319,
+        0
+      ]
+    },
+    {
+      "q": "Which planet is known as the red planet?",
+      "a": "Mars",
+      "rank_true": 6,
+      "rank_distractors": [
+        354,
+        1935,
+        1693,
+        877,
+        977
+      ]
+    },
+    {
+      "q": "What is the chemical element with symbol Au?",
+      "a": "gold",
+      "rank_true": 105,
+      "rank_distractors": [
+        151,
+        1294,
+        637,
+        32,
+        1000000
+      ]
+    },
+    {
+      "q": "What is the chemical element with symbol Fe?",
+      "a": "iron",
+      "rank_true": 122,
+      "rank_distractors": [
+        1000000,
+        1000000,
+        1000000,
+        1000000,
+        545
+      ]
+    },
+    {
+      "q": "What is the chemical element with symbol O?",
+      "a": "oxygen",
+      "rank_true": 56,
+      "rank_distractors": [
+        385,
+        1592,
+        286,
+        1000000,
+        1000000
+      ]
+    },
+    {
+      "q": "What is the chemical element with symbol He?",
+      "a": "helium",
+      "rank_true": 12,
+      "rank_distractors": [
+        1000000,
+        1000000,
+        889,
+        1000000,
+        1000000
+      ]
+    },
+    {
+      "q": "What is the chemical element with symbol Na?",
+      "a": "sodium",
+      "rank_true": 30,
+      "rank_distractors": [
+        1000000,
+        1000000,
+        98,
+        843,
+        1067
+      ]
+    },
+    {
+      "q": "What metal is liquid at room temperature?",
+      "a": "mercury",
+      "rank_true": 82,
+      "rank_distractors": [
+        21,
+        1000000,
+        1527,
+        706,
+        542
+      ]
+    },
+    {
+      "q": "How many legs does a spider have?",
+      "a": "eight",
+      "rank_true": 22,
+      "rank_distractors": [
+        163,
+        1000000,
+        1000000,
+        1000000,
+        286
+      ]
+    },
+    {
+      "q": "How many sides does a hexagon have?",
+      "a": "six",
+      "rank_true": 12,
+      "rank_distractors": [
+        650,
+        1000000,
+        1019,
+        460,
+        5
+      ]
+    },
+    {
+      "q": "How many continents are there on Earth?",
+      "a": "seven",
+      "rank_true": 18,
+      "rank_distractors": [
+        1000000,
+        329,
+        1600,
+        329,
+        137
+      ]
+    },
+    {
+      "q": "How many planets are in the solar system?",
+      "a": "eight",
+      "rank_true": 19,
+      "rank_distractors": [
+        834,
+        1000000,
+        72,
+        1256,
+        1200
+      ]
+    },
+    {
+      "q": "What is the longest river in the world?",
+      "a": "Nile",
+      "rank_true": 0,
+      "rank_distractors": [
+        508,
+        189,
+        568,
+        1421,
+        1000000
+      ]
+    },
+    {
+      "q": "What is the tallest mountain on Earth?",
+      "a": "Everest",
+      "rank_true": 64,
+      "rank_distractors": [
+        1000000,
+        686,
+        513,
+        572,
+        1134
+      ]
+    },
+    {
+      "q": "What is the largest ocean on Earth?",
+      "a": "Pacific",
+      "rank_true": 8,
+      "rank_distractors": [
+        1000000,
+        1000000,
+        1022,
+        1325,
+        1603
+      ]
+    },
+    {
+      "q": "What is the smallest prime number?",
+      "a": "two",
+      "rank_true": 12,
+      "rank_distractors": [
+        529,
+        8,
+        1000000,
+        1000000,
+        1000000
+      ]
+    },
+    {
+      "q": "What is the square root of sixty-four?",
+      "a": "eight",
+      "rank_true": 22,
+      "rank_distractors": [
+        1000000,
+        1000000,
+        1931,
+        1000000,
+        1000000
+      ]
+    },
+    {
+      "q": "What animal is the largest living land mammal?",
+      "a": "elephant",
+      "rank_true": 9,
+      "rank_distractors": [
+        1491,
+        149,
+        284,
+        733,
+        439
+      ]
+    },
+    {
+      "q": "What is the fastest land animal?",
+      "a": "cheetah",
+      "rank_true": 83,
+      "rank_distractors": [
+        1000000,
+        1000000,
+        1000000,
+        885,
+        417
+      ]
+    },
+    {
+      "q": "What is the largest species of big cat?",
+      "a": "tiger",
+      "rank_true": 69,
+      "rank_distractors": [
+        1000000,
+        409,
+        1000000,
+        11,
+        1050
+      ]
+    },
+    {
+      "q": "What bird is the universal symbol of peace?",
+      "a": "dove",
+      "rank_true": 441,
+      "rank_distractors": [
+        1000000,
+        1000000,
+        1453,
+        1000000,
+        1288
+      ]
+    }
+  ]
+}
