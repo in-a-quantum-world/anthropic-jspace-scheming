@@ -48,6 +48,10 @@ Pilot runs on 2026-10-25 (results/20261025-0111-pilot, results/extended, results
 
 The same design, bands, metrics and exclusions extend to: gemma-4-31B-it, Mistral-Small-24B-Instruct-2501, gpt-oss-20b (all with solarkyle lens fits on the instruct checkpoints). On gemma-4-31B-it, H3 additionally tests the zachperlman20 J++ fit. Qwen3.5-122B-A10B (koayon J++ lens) is a stretch target at the 122B scale point, attempted only if it fits one GPU; reported either way. Each model-lens pair is gated by its own positive control exactly as in Metrics.
 
+## Exploratory arms (not confirmatory)
+
+Additional lens readouts on Qwen3.6-27B (camilablank matched J/R pair) and the read-only Dolos-1.5B vs parent comparison (bubskee lens bundle; fine-tune provenance undocumented) are exploratory and carry no registered hypotheses.
+
 ## Analysis plan
 
 Primary endpoint: H1's three per-model AUROCs in the primary band. Everything outside the named bands (sliding windows, per-layer plots) is descriptive. No band, metric, or exclusion will be changed after seeing confirmatory data; if one must be, it goes in Deviations with the reason and both the old and new numbers.
