@@ -1,0 +1,809 @@
+{
+ "max_distractors": 8,
+ "items": [
+  {
+   "q": "Which gas makes up most of Earth's atmosphere?",
+   "a": "nitrogen",
+   "category": "element",
+   "distractors": [
+    "gold",
+    "iron",
+    "oxygen",
+    "helium",
+    "sodium",
+    "mercury",
+    "carbon",
+    "hydrogen"
+   ]
+  },
+  {
+   "q": "What is the capital of France?",
+   "a": "Paris",
+   "category": "capital",
+   "distractors": [
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin",
+    "Athens"
+   ]
+  },
+  {
+   "q": "What is the capital of Japan?",
+   "a": "Tokyo",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin",
+    "Athens"
+   ]
+  },
+  {
+   "q": "What is the capital of Italy?",
+   "a": "Rome",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin",
+    "Athens"
+   ]
+  },
+  {
+   "q": "What is the capital of Spain?",
+   "a": "Madrid",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin",
+    "Athens"
+   ]
+  },
+  {
+   "q": "What is the capital of Russia?",
+   "a": "Moscow",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Cairo",
+    "Ottawa",
+    "Berlin",
+    "Athens"
+   ]
+  },
+  {
+   "q": "What is the capital of Egypt?",
+   "a": "Cairo",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Ottawa",
+    "Berlin",
+    "Athens"
+   ]
+  },
+  {
+   "q": "What is the capital of Canada?",
+   "a": "Ottawa",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Berlin",
+    "Athens"
+   ]
+  },
+  {
+   "q": "What is the capital of Germany?",
+   "a": "Berlin",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Athens"
+   ]
+  },
+  {
+   "q": "What is the capital of Greece?",
+   "a": "Athens",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin"
+   ]
+  },
+  {
+   "q": "What is the capital of Portugal?",
+   "a": "Lisbon",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin"
+   ]
+  },
+  {
+   "q": "What is the capital of Poland?",
+   "a": "Warsaw",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin"
+   ]
+  },
+  {
+   "q": "What is the capital of Ireland?",
+   "a": "Dublin",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin"
+   ]
+  },
+  {
+   "q": "What is the capital of Norway?",
+   "a": "Oslo",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin"
+   ]
+  },
+  {
+   "q": "What is the capital of Austria?",
+   "a": "Vienna",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin"
+   ]
+  },
+  {
+   "q": "What is the capital of Thailand?",
+   "a": "Bangkok",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin"
+   ]
+  },
+  {
+   "q": "What is the capital of Kenya?",
+   "a": "Nairobi",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin"
+   ]
+  },
+  {
+   "q": "What is the capital of Cuba?",
+   "a": "Havana",
+   "category": "capital",
+   "distractors": [
+    "Paris",
+    "Tokyo",
+    "Rome",
+    "Madrid",
+    "Moscow",
+    "Cairo",
+    "Ottawa",
+    "Berlin"
+   ]
+  },
+  {
+   "q": "What is the largest planet in the solar system?",
+   "a": "Jupiter",
+   "category": "planet",
+   "distractors": [
+    "Mercury",
+    "Mars",
+    "Venus",
+    "Saturn",
+    "Neptune",
+    "Uranus",
+    "Pluto"
+   ]
+  },
+  {
+   "q": "Which planet is closest to the sun?",
+   "a": "Mercury",
+   "category": "planet",
+   "distractors": [
+    "Jupiter",
+    "Mars",
+    "Venus",
+    "Saturn",
+    "Neptune",
+    "Uranus",
+    "Pluto"
+   ]
+  },
+  {
+   "q": "Which planet is known as the red planet?",
+   "a": "Mars",
+   "category": "planet",
+   "distractors": [
+    "Jupiter",
+    "Mercury",
+    "Venus",
+    "Saturn",
+    "Neptune",
+    "Uranus",
+    "Pluto"
+   ]
+  },
+  {
+   "q": "What is the chemical element with symbol Au?",
+   "a": "gold",
+   "category": "element",
+   "distractors": [
+    "iron",
+    "oxygen",
+    "helium",
+    "sodium",
+    "mercury",
+    "nitrogen",
+    "carbon",
+    "hydrogen"
+   ]
+  },
+  {
+   "q": "What is the chemical element with symbol Fe?",
+   "a": "iron",
+   "category": "element",
+   "distractors": [
+    "gold",
+    "oxygen",
+    "helium",
+    "sodium",
+    "mercury",
+    "nitrogen",
+    "carbon",
+    "hydrogen"
+   ]
+  },
+  {
+   "q": "What is the chemical element with symbol O?",
+   "a": "oxygen",
+   "category": "element",
+   "distractors": [
+    "gold",
+    "iron",
+    "helium",
+    "sodium",
+    "mercury",
+    "nitrogen",
+    "carbon",
+    "hydrogen"
+   ]
+  },
+  {
+   "q": "What is the chemical element with symbol He?",
+   "a": "helium",
+   "category": "element",
+   "distractors": [
+    "gold",
+    "iron",
+    "oxygen",
+    "sodium",
+    "mercury",
+    "nitrogen",
+    "carbon",
+    "hydrogen"
+   ]
+  },
+  {
+   "q": "What is the chemical element with symbol Na?",
+   "a": "sodium",
+   "category": "element",
+   "distractors": [
+    "gold",
+    "iron",
+    "oxygen",
+    "helium",
+    "mercury",
+    "nitrogen",
+    "carbon",
+    "hydrogen"
+   ]
+  },
+  {
+   "q": "What metal is liquid at room temperature?",
+   "a": "mercury",
+   "category": "element",
+   "distractors": [
+    "gold",
+    "iron",
+    "oxygen",
+    "helium",
+    "sodium",
+    "nitrogen",
+    "carbon",
+    "hydrogen"
+   ]
+  },
+  {
+   "q": "How many legs does a spider have?",
+   "a": "eight",
+   "category": "number",
+   "distractors": [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "nine"
+   ]
+  },
+  {
+   "q": "How many sides does a hexagon have?",
+   "a": "six",
+   "category": "number",
+   "distractors": [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "seven",
+    "eight",
+    "nine"
+   ]
+  },
+  {
+   "q": "How many continents are there on Earth?",
+   "a": "seven",
+   "category": "number",
+   "distractors": [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "eight",
+    "nine"
+   ]
+  },
+  {
+   "q": "How many planets are in the solar system?",
+   "a": "eight",
+   "category": "number",
+   "distractors": [
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "nine"
+   ]
+  },
+  {
+   "q": "What is the longest river in the world?",
+   "a": "Nile",
+   "category": "river",
+   "distractors": [
+    "Amazon",
+    "Danube",
+    "Thames",
+    "Ganges",
+    "Volga",
+    "Rhine",
+    "Congo"
+   ]
+  },
+  {
+   "q": "What is the tallest mountain on Earth?",
+   "a": "Everest",
+   "category": "mountain",
+   "distractors": [
+    "Kilimanjaro",
+    "Denali",
+    "Fuji",
+    "Elbrus",
+    "Olympus",
+    "Matterhorn"
+   ]
+  },
+  {
+   "q": "What is the largest ocean on Earth?",
+   "a": "Pacific",
+   "category": "ocean",
+   "distractors": [
+    "Atlantic",
+    "Indian",
+    "Arctic",
+    "Southern"
+   ]
+  },
+  {
+   "q": "What is the smallest prime number?",
+   "a": "two",
+   "category": "number",
+   "distractors": [
+    "one",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine"
+   ]
+  },
+  {
+   "q": "What is the square root of sixty-four?",
+   "a": "eight",
+   "category": "number",
+   "distractors": [
+    "one",
+    "two",
+    "three",
+    "five",
+    "seven",
+    "nine",
+    "ten",
+    "eleven"
+   ]
+  },
+  {
+   "q": "What animal is the largest living land mammal?",
+   "a": "elephant",
+   "category": "animal",
+   "distractors": [
+    "cheetah",
+    "tiger",
+    "lion",
+    "giraffe",
+    "rhino",
+    "hippo",
+    "leopard",
+    "bear"
+   ]
+  },
+  {
+   "q": "What is the fastest land animal?",
+   "a": "cheetah",
+   "category": "animal",
+   "distractors": [
+    "elephant",
+    "tiger",
+    "lion",
+    "giraffe",
+    "rhino",
+    "hippo",
+    "leopard",
+    "bear"
+   ]
+  },
+  {
+   "q": "What is the largest species of big cat?",
+   "a": "tiger",
+   "category": "animal",
+   "distractors": [
+    "elephant",
+    "cheetah",
+    "lion",
+    "giraffe",
+    "rhino",
+    "hippo",
+    "leopard",
+    "bear"
+   ]
+  },
+  {
+   "q": "What bird is the universal symbol of peace?",
+   "a": "dove",
+   "category": "bird",
+   "distractors": [
+    "eagle",
+    "owl",
+    "swan",
+    "sparrow",
+    "falcon",
+    "robin",
+    "crow"
+   ]
+  },
+  {
+   "q": "What is the main ingredient of guacamole?",
+   "a": "avocado",
+   "category": "food",
+   "distractors": [
+    "apple",
+    "banana",
+    "mango",
+    "tomato",
+    "lemon",
+    "olive",
+    "pear",
+    "peach"
+   ]
+  },
+  {
+   "q": "What fruit is traditionally associated with Isaac Newton?",
+   "a": "apple",
+   "category": "food",
+   "distractors": [
+    "avocado",
+    "banana",
+    "mango",
+    "tomato",
+    "lemon",
+    "olive",
+    "pear",
+    "peach"
+   ]
+  },
+  {
+   "q": "Which organ pumps blood around the human body?",
+   "a": "heart",
+   "category": "organ",
+   "distractors": [
+    "pancreas",
+    "skin",
+    "liver",
+    "kidney",
+    "lung",
+    "brain",
+    "stomach",
+    "spleen"
+   ]
+  },
+  {
+   "q": "Which organ in the human body produces insulin?",
+   "a": "pancreas",
+   "category": "organ",
+   "distractors": [
+    "heart",
+    "skin",
+    "liver",
+    "kidney",
+    "lung",
+    "brain",
+    "stomach",
+    "spleen"
+   ]
+  },
+  {
+   "q": "What is the human body's largest organ?",
+   "a": "skin",
+   "category": "organ",
+   "distractors": [
+    "heart",
+    "pancreas",
+    "liver",
+    "kidney",
+    "lung",
+    "brain",
+    "stomach",
+    "spleen"
+   ]
+  },
+  {
+   "q": "What is frozen water called?",
+   "a": "ice",
+   "category": "water",
+   "distractors": [
+    "snow",
+    "steam",
+    "frost",
+    "hail",
+    "sleet"
+   ]
+  },
+  {
+   "q": "What do bees collect from flowers?",
+   "a": "nectar",
+   "category": "bee",
+   "distractors": [
+    "pollen",
+    "honey",
+    "dew",
+    "sap",
+    "resin"
+   ]
+  },
+  {
+   "q": "In which country are the pyramids of Giza?",
+   "a": "Egypt",
+   "category": "country",
+   "distractors": [
+    "France",
+    "Japan",
+    "Canada",
+    "Brazil",
+    "India",
+    "China",
+    "Mexico",
+    "Spain"
+   ]
+  },
+  {
+   "q": "In which country is the Eiffel Tower?",
+   "a": "France",
+   "category": "country",
+   "distractors": [
+    "Egypt",
+    "Japan",
+    "Canada",
+    "Brazil",
+    "India",
+    "China",
+    "Mexico",
+    "Spain"
+   ]
+  },
+  {
+   "q": "In which country is Mount Fuji?",
+   "a": "Japan",
+   "category": "country",
+   "distractors": [
+    "Egypt",
+    "France",
+    "Canada",
+    "Brazil",
+    "India",
+    "China",
+    "Mexico",
+    "Spain"
+   ]
+  },
+  {
+   "q": "Which language is spoken in Brazil?",
+   "a": "Portuguese",
+   "category": "language",
+   "distractors": [
+    "Spanish",
+    "French",
+    "English",
+    "Italian",
+    "German",
+    "Dutch",
+    "Arabic"
+   ]
+  },
+  {
+   "q": "What currency is used in Japan?",
+   "a": "yen",
+   "category": "currency",
+   "distractors": [
+    "pound",
+    "euro",
+    "dollar",
+    "franc",
+    "rupee",
+    "peso",
+    "won"
+   ]
+  },
+  {
+   "q": "What currency is used in the United Kingdom?",
+   "a": "pound",
+   "category": "currency",
+   "distractors": [
+    "yen",
+    "euro",
+    "dollar",
+    "franc",
+    "rupee",
+    "peso",
+    "won"
+   ]
+  },
+  {
+   "q": "In which country is the Sky Train Rail bridge?",
+   "a": "Canada",
+   "category": "country",
+   "distractors": [
+    "Egypt",
+    "France",
+    "Japan",
+    "Brazil",
+    "India",
+    "China",
+    "Mexico",
+    "Spain"
+   ]
+  },
+  {
+   "q": "Which state on the Gulf of Mexico is nearest the end of the alphabet?",
+   "a": "Texas",
+   "category": "us_state",
+   "distractors": [
+    "Florida",
+    "Alabama",
+    "Georgia",
+    "Utah",
+    "Nevada",
+    "Ohio",
+    "Maine"
+   ]
+  }
+ ]
+}

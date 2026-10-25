@@ -8,6 +8,7 @@ For manual review. Checkbox = opened and verified by me (Rucha). Items marked (v
 - [ ] anthropics/jacobian-lens (GitHub) — reference implementation, Apache 2.0, includes the fitting script. The `jlens` library the pilot uses.
 - [ ] neuronpedia/jacobian-lens (HF collection) — Neuronpedia's lens fits, includes a Pythia-70m lens used by others as a validation target.
 - [ ] Lens lineage, for the paper's related work: logit lens (nostalgebraist, LessWrong 2020), tuned lens (Belrose et al., arXiv 2303.08112, verify).
+- [x] **koayon/jpp-lenses** — https://hf.co/koayon/jpp-lenses — J++ Lens fits (Ayonrinde & Lindsey, LessWrong 2026: "J++ Lens: Jacobian Filtering Enables More Faithful Workspace Lenses"). Covers **Qwen/Qwen3.6-27B** (our checkpoint; recall@10 55.2%, layers 0-62, 6.6 GB fp32), plus Qwen3.5-9B, gemma-4-31B, Olmo-3-32B, Qwen3.5-122B-A10B, DeepSeek-V4-Flash. File format documented (torch dict, `parameters["jacobians"]`); readout = unembed(J_l h). Verified from the repo README 2026-10-25; our lens-quality control arm.
 
 ## Lens fits and tools (Hugging Face)
 

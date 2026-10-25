@@ -43,7 +43,7 @@ J_l = \mathbb{E}_{t,\,t' \ge t,\,\text{prompt}}\!\left[\frac{\partial h^{\mathrm
 \qquad
 \mathrm{lens}(h^l) = \mathrm{softmax}\!\big(W_U\,\mathrm{norm}(J_l\, h^l)\big),
 \end{equation}
-yielding, per layer, a distribution over the vocabulary: what the layer is disposed to say later. \todo{One paragraph on the global-workspace claim and its hedges (coverage, single-token concepts).}
+yielding, per layer, a distribution over the vocabulary: what the layer is disposed to say later. The J++ lens \citep{ayonrinde2026jpplens} replaces the pooled Jacobian with cluster-routed expert Jacobians and reports higher readout recall; we use it as a lens-quality control on Qwen3.6-27B. \todo{One paragraph on the global-workspace claim and its hedges (coverage, single-token concepts).}
 
 \subsection{Sandbagging and deception}
 \todo{Prompted sandbagging \citep{vanderweij2024sandbagging}; password-locked models \citep{greenblatt2024password}; honesty under pressure \citep{mask2025}; in-context scheming evaluations \citep{apollo2024scheming}; deception probes \citep{pressure2026probes,oneprobe2026}.}
