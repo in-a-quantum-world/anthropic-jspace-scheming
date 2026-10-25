@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+
+% arXiv-friendly, compiles with pdflatex. Replace TODOs, then: pdflatex, bibtex, pdflatex x2.
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage[numbers]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+\title{Reading Withheld Knowledge: Jacobian-Lens Recovery of\\ Sandbagged Answers in Open-Weight Language Models}
+\author{Rucha Agashe\\
+Imperial College London\\
+\texttt{\todo{email}}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Sandbagging, a model deliberately underperforming on an evaluation, undermines the validity of capability and safety assessments. We test whether deliberately withheld knowledge remains readable from a model's internals using the Jacobian lens, a workspace readout method. On open-ended factual questions with single-token answers, where the correct token never appears in the prompt, we compare honest and instructed-sandbagging conditions across \todo{N} open-weight instruct models (4B--27B). \todo{Headline numbers: positive-control visibility X\%, sandbag compliance Y\%, persistence Z\%, recovery@5 W\% against a distractor false-positive rate of V\%.} A password-locked LoRA arm tests whether the result survives when concealment is trained into the weights rather than prompted. \todo{One sentence on causal ablation results.} We release the question bank, readout traces, and a reproducible single-GPU pipeline.
+\end{abstract}
+
+\section{Introduction}
+\todo{Motivation paragraph: evals as the load-bearing evidence in safety cases; sandbagging breaks them; behavioural oversight recently failed publicly during an evaluation \citep{redwood2026incident}; whether internals can be monitored where behaviour cannot is a live question.}
+
+\paragraph{Contributions.}
+\begin{enumerate}
+  \item The first quantified account of sandbagged-knowledge recovery via workspace readouts, with positive controls and a norm-matched distractor baseline.
+  \item \todo{Causal evidence: ablating concealment-related concepts restores honest answering (or does not).}
+  \item A comparison of prompted versus trained-in (password-locked LoRA) concealment under the same monitor.
+  \item A reusable open-ended single-token question bank and a pipeline reproducible on one GPU.
+\end{enumerate}
+
+\section{Background and related work}
+\subsection{Lenses on the residual stream}
+The logit lens \citep{nostalgebraist2020logitlens} decodes intermediate activations with the final unembedding; the tuned lens \citep{belrose2023tuned} replaces this with learned affine probes per layer. The Jacobian lens \citep{anthropic2026workspace} instead transports layer-$l$ activations through the network's Jacobian toward future-token logits:
+\begin{equation}
+J_l = \mathbb{E}_{t,\,t' \ge t,\,\text{prompt}}\!\left[\frac{\partial h^{\mathrm{final}}_{t'}}{\partial h^{l}_{t}}\right],
+\qquad
+\mathrm{lens}(h^l) = \mathrm{softmax}\!\big(W_U\,\mathrm{norm}(J_l\, h^l)\big),
+\end{equation}
+yielding, per layer, a distribution over the vocabulary: what the layer is disposed to say later. \todo{One paragraph on the global-workspace claim and its hedges (coverage, single-token concepts).}
+
+\subsection{Sandbagging and deception}
+\todo{Prompted sandbagging \citep{vanderweij2024sandbagging}; password-locked models \citep{greenblatt2024password}; honesty under pressure \citep{mask2025}; in-context scheming evaluations \citep{apollo2024scheming}; deception probes \citep{pressure2026probes,oneprobe2026}.}
+
+\subsection{Concurrent lens applications}
+\todo{Instructed-lie observation and hallucination campaign \citep{solarkyle2026lenses}; unlearning audits \citep{ziruibest2026unlearning}; relation of this work to each (sandbagging framing, quantified recovery, baselines, causal step, trained-in arm).}
+
+\section{Method}
+\subsection{Task design}
+\todo{Open-ended single-token answers; correct token absent from prompt (prompt-echo control); bank construction: hand-written seed + filtered TriviaQA traces; per-model baseline filter (keep only items answered correctly honestly).}
+
+\subsection{Conditions}
+\todo{Honest instruction vs sandbag instruction (exact prompts in appendix); password-locked LoRA arm: training data, rank, trigger.}
+
+\subsection{Metrics}
+\todo{Persistence: answer token in lens top-$k$ within the read band during complied sandbagging. Recovery@$k$. Distractor baseline: ranks of other items' answers in the same readout. Positive-control visibility. Compliance. CIs via normal approximation, $n$ per condition.}
+
+\section{Experimental setup}
+\begin{table}[h]
+\centering
+\begin{tabular}{llll}
+\toprule
+Model & Params & Lens source & Precision \\
+\midrule
+gemma-4-E4B-it & 4B & solarkyle/jspace-lenses & bf16 \\
+gemma-4-12B-it & 12B & solarkyle/jspace-lenses & bf16 \\
+Qwen3.6-27B & 27B & solarkyle/jspace-lenses & NF4 \\
+\bottomrule
+\end{tabular}
+\caption{Models and pre-fitted lenses. \todo{Confirm precisions; cite lens fitting details (100 WikiText-103 prompts, bf16).}}
+\end{table}
+
+\section{Results}
+\subsection{Pilot: visibility, compliance, persistence}
+\todo{Table: per model, known/bank, positive-control visibility, compliance, persistence, with CIs. Example row from the first pilot (gemma-4-E4B-it): known 58/60, visible 58/58, comply 33/58, persist 31/33.}
+
+\subsection{Recovery against the distractor baseline}
+\todo{Table: recovery@1/@5/@20 vs distractor-in-top-20 rate, per model. Figure: per-layer rank trajectory for one vivid example (true answer elevated while output is wrong).}
+
+\subsection{Prompted versus trained-in concealment}
+\todo{Password-locked LoRA results; does recovery differ?}
+
+\section{Causal interventions}
+\todo{Ablation/swap of concealment-related concepts; effect on flip-back rate vs norm-matched random-concept baselines.}
+
+\section{Limitations}
+\todo{Lens coverage: absence from the readout is not absence from the model; a persistence null is lens-limited. Prompted sandbagging as model organism; instructed concealment may differ mechanistically from self-generated concealment. Community-fitted lenses of unverified quality (mitigated by positive controls). Single-token answers only. Salience vs belief.}
+
+\section{Ethics and safety statement}
+\todo{Dual-use note: a recovery monitor aids evaluators; discussing concealment mechanics could, in principle, inform evasion. Why release is net-positive here.}
+
+\section*{Acknowledgements}
+\todo{BlueDot Technical AI Safety Project Sprint and mentor; lens authors (Anthropic reference implementation; solarkyle, Kameshr community fits); supervisor.}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+\section{Prompts}
+\todo{Exact honest and sandbag system prompts; LoRA training prompt pairs.}
+\section{Question bank}
+\todo{Release pointer + construction/filter rules.}
+
+\end{document}
