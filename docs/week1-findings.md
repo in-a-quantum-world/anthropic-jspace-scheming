@@ -40,3 +40,12 @@ cb_r 0.732, cb_j 0.730, lens (solarkyle J) 0.718, jpp 0.714, logit 0.664. All tr
 - 31b: truth barely readable in any band (sliding-band max AUROC 0.57, persist@20 max 11/53) with a perfect positive control. Bigger-gemma concealment or weaker lens fit; the zachperlman20 J++ control did not run in this session (hidden-state readouts were disabled on the gemma models; error text to be pulled from the Colab cell-5 output) and is the disambiguator.
 - Earliness (depth of first elevation) alone does not separate truth from lie candidates (AUROC 0.54-0.68); richer trajectory-shape features are untested.
 - Dolos exploratory arm: pending (cell 7).
+
+## Dolos exploratory arm (run 20261025-1807-week1, read-only)
+
+Positive controls perfect (50/50 honest visibility on logit, J, R, J++ for both Dolos-1.5B and its Qwen2.5-1.5B-Instruct parent). But compliance was 6/50 on both models, and several "complied" items were scoring artifacts (digit "6" for "six"; "Icy"/"Icicle" for "ice"), so the printed AUROCs (0.81-0.90) rest on too few items to quote. Two usable observations:
+
+1. Instructed-sandbagging competence scales: compliance ~10% at 1.5B, 58% at 4B (31/53), ~100% at 12B and above. Deliberate underperformance on instruction is itself a capability; concealment detection is a capable-model problem.
+2. Dolos's deception tuning gave no extra instructed-sandbagging ability over its parent (6/50 vs 6/50), so it does not serve the trained-in-vs-prompted contrast; the controlled arm remains necessary.
+
+Compliance scoring now maps number words to digit forms (notebook fix in this commit); re-scored compliance for 1.5B models is lower than the printed 6/50.
