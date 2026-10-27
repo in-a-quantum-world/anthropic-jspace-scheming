@@ -1,6 +1,6 @@
 # Sandbagging in the J-space
 
-When a language model deliberately underperforms on an evaluation, is the withheld knowledge still readable from its internal workspace, and can it be recovered?
+When a model withholds an answer, can a workspace lens recover it without knowing the answer in advance—and when recovery fails, is that because of concealment or because the lens no longer measures the model reliably?
 
 
 ## The question
