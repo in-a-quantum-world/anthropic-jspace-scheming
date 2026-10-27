@@ -59,3 +59,11 @@ Primary endpoint: H1's three per-model AUROCs in the primary band. Everything ou
 ## Deviations
 
 (none yet)
+
+## Amendment 1 (2026-10-27, following external review; original text above unchanged)
+
+1. The registered pooled AUROC stands and continues to be reported. Alongside it, two descriptive statistics are added to every analysis: a within-question matched AUROC (mean over items of the truth-vs-own-distractors win rate), and both variants with the emitted wrong answer retained in the distractor set. Rationale: the read occurs before generation, so the original exclusion rationale in Exclusions item 3 was incorrect; the exclusion is retained as the auditor's decoder (conditioning on the observed output), not as a validity assumption.
+2. H2 is reinterpreted as a claim about the depth profile of the measurement procedure (lens readability), not about where the model represents the answer, because honest-condition positive controls also fail outside the late band.
+3. The current 55-item bank and all analyses on it are reclassified as development evidence. Confirmatory claims will use a fresh held-out bank with audited, type-matched distractors and relation-changing controls, constructed before any model is run on it and kept disjoint from LoRA training, lens fitting, decoder selection, and threshold calibration.
+4. Added baselines: final-output logits and one budgeted black-box elicitation baseline; the logit lens is treated as a competitor. J++ comparisons report both a common ranking protocol and its native protocol.
+

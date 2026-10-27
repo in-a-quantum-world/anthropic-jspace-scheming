@@ -2,6 +2,13 @@
 
 When a model withholds an answer, can a workspace lens recover it without knowing the answer in advance—and when recovery fails, is that because of concealment or because the lens no longer measures the model reliably?
 
+## Status (2026-10-27)
+
+- **Completed, exploratory:** three-model pilot and a four-model matched-distractor run with full per-layer trajectories (`results/`), a read-depth sweep on 12B, a five-readout comparison on Qwen3.6-27B, and a read-only Dolos-1.5B arm. Findings and honest threshold failures: `docs/week1-findings.md`. Reviewer-requested re-analyses (matched AUROC, emitted-lie-retained recovery): `docs/review-response.md`.
+- **Registered:** `docs/prereg.md` (original text frozen; Amendment 1 appended 2026-10-27).
+- **Planned:** fresh held-out bank with audited distractors, parent-vs-refitted lens matrix on a password-locked organism, one targeted causal test, DeepSeek-V4-Flash as a later frozen replication.
+- Headline, stated at pilot strength: exploratory evidence that correct-answer tokens remain distinguishable from matched distractors during instructed underperformance, with visibility strongly dependent on read depth; the model's planned wrong answer dominates the readout, so recovery operationally means discounting the observed output.
+
 
 ## The question
 
