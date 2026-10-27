@@ -2,7 +2,6 @@
 
 When a language model deliberately underperforms on an evaluation, is the withheld knowledge still readable from its internal workspace, and can it be recovered?
 
-A [BlueDot Technical AI Safety Project Sprint](https://bluedot.org/courses/technical-ai-safety-project) project by Rucha Agashe.
 
 ## The question
 
@@ -19,7 +18,7 @@ Robustness arm: a password-locked LoRA where the sandbagging is trained into the
 - Open-ended factual questions with single-token answers; the correct token never appears in the prompt, so anything found internally is model-generated rather than prompt echo.
 - Honest vs sandbagged conditions on the same filtered question bank (hand-written items plus filtered TriviaQA items from the [solarkyle/jspace-lenses](https://huggingface.co/solarkyle/jspace-lenses) traces).
 - Positive controls on every run: the lens must see answers the model gets right honestly, or the run is void.
-- Confidence intervals on every proportion; analysis plan frozen before interventions run; a null is reported, not rescued.
+- Confidence intervals on every proportion, analysis plan frozen before interventions run, a null is reported, not rescued.
 
 ## Models and tooling
 
