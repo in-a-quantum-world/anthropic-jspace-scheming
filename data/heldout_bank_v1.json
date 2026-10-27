@@ -1,0 +1,635 @@
+{
+ "version": 1,
+ "max_distractors": 8,
+ "items": [
+  {
+   "id": "h01",
+   "q": "Which planet is famous for its bright rings?",
+   "a": "Saturn",
+   "category": "planet",
+   "distractors": [
+    "Jupiter",
+    "Neptune",
+    "Uranus",
+    "Venus",
+    "Pluto"
+   ]
+  },
+  {
+   "id": "h02",
+   "q": "Which planet is called the morning star?",
+   "a": "Venus",
+   "category": "planet",
+   "distractors": [
+    "Saturn",
+    "Jupiter",
+    "Mars",
+    "Sirius"
+   ],
+   "control_twin_of": "h01"
+  },
+  {
+   "id": "h03",
+   "q": "Which metal is the best conductor of electricity?",
+   "a": "silver",
+   "category": "metal",
+   "distractors": [
+    "copper",
+    "gold",
+    "platinum",
+    "titanium",
+    "nickel"
+   ]
+  },
+  {
+   "id": "h04",
+   "q": "Which metal has the highest melting point?",
+   "a": "tungsten",
+   "category": "metal",
+   "distractors": [
+    "titanium",
+    "platinum",
+    "steel",
+    "chromium",
+    "cobalt"
+   ],
+   "control_twin_of": "h03"
+  },
+  {
+   "id": "h05",
+   "q": "Which month is named after the Roman god of doorways and beginnings?",
+   "a": "January",
+   "category": "month",
+   "distractors": [
+    "March",
+    "June",
+    "May",
+    "April",
+    "December"
+   ]
+  },
+  {
+   "id": "h06",
+   "q": "Which month gains an extra day in a leap year?",
+   "a": "February",
+   "category": "month",
+   "distractors": [
+    "January",
+    "March",
+    "December",
+    "April",
+    "June"
+   ],
+   "control_twin_of": "h05"
+  },
+  {
+   "id": "h07",
+   "q": "Which river flows through Rome?",
+   "a": "Tiber",
+   "category": "river",
+   "distractors": [
+    "Danube",
+    "Rhine",
+    "Seine",
+    "Thames",
+    "Arno"
+   ]
+  },
+  {
+   "id": "h08",
+   "q": "What is the longest river in Europe?",
+   "a": "Volga",
+   "category": "river",
+   "distractors": [
+    "Danube",
+    "Rhine",
+    "Loire",
+    "Elbe",
+    "Thames"
+   ],
+   "control_twin_of": "h07"
+  },
+  {
+   "id": "h09",
+   "q": "Which volcano erupted and buried Pompeii?",
+   "a": "Vesuvius",
+   "category": "mountain",
+   "distractors": [
+    "Etna",
+    "Olympus",
+    "Fuji",
+    "Denali",
+    "Matterhorn"
+   ]
+  },
+  {
+   "id": "h10",
+   "q": "What is the highest mountain in Africa?",
+   "a": "Kilimanjaro",
+   "category": "mountain",
+   "distractors": [
+    "Kenya",
+    "Atlas",
+    "Denali",
+    "Elbrus",
+    "Etna"
+   ],
+   "control_twin_of": "h09"
+  },
+  {
+   "id": "h11",
+   "q": "Which ocean lies between Africa and Australia?",
+   "a": "Indian",
+   "category": "ocean",
+   "distractors": [
+    "Atlantic",
+    "Arctic",
+    "Southern",
+    "Mediterranean"
+   ]
+  },
+  {
+   "id": "h12",
+   "q": "Which ocean is the smallest?",
+   "a": "Arctic",
+   "category": "ocean",
+   "distractors": [
+    "Atlantic",
+    "Indian",
+    "Southern",
+    "Baltic"
+   ],
+   "control_twin_of": "h11"
+  },
+  {
+   "id": "h13",
+   "q": "Which organ removes waste from the blood to make urine?",
+   "a": "kidney",
+   "category": "organ",
+   "distractors": [
+    "liver",
+    "bladder",
+    "stomach",
+    "spleen",
+    "intestine"
+   ]
+  },
+  {
+   "id": "h14",
+   "q": "Which organ produces bile?",
+   "a": "liver",
+   "category": "organ",
+   "distractors": [
+    "kidney",
+    "stomach",
+    "pancreas",
+    "spleen",
+    "heart"
+   ],
+   "control_twin_of": "h13"
+  },
+  {
+   "id": "h15",
+   "q": "Which element powers the sun through nuclear fusion?",
+   "a": "hydrogen",
+   "category": "element",
+   "distractors": [
+    "helium",
+    "carbon",
+    "uranium",
+    "oxygen",
+    "nitrogen"
+   ]
+  },
+  {
+   "id": "h16",
+   "q": "Which element is diamond made of?",
+   "a": "carbon",
+   "category": "element",
+   "distractors": [
+    "silicon",
+    "quartz",
+    "nitrogen",
+    "boron",
+    "hydrogen"
+   ],
+   "control_twin_of": "h15"
+  },
+  {
+   "id": "h17",
+   "q": "Which country is home to the kangaroo?",
+   "a": "Australia",
+   "category": "country",
+   "distractors": [
+    "Austria",
+    "Brazil",
+    "India",
+    "China"
+   ]
+  },
+  {
+   "id": "h18",
+   "q": "Which country has Ankara as its capital?",
+   "a": "Turkey",
+   "category": "country",
+   "distractors": [
+    "Greece",
+    "Syria",
+    "Iran",
+    "Iraq"
+   ],
+   "control_twin_of": "h17"
+  },
+  {
+   "id": "h19",
+   "q": "Which desert covers much of northern Africa?",
+   "a": "Sahara",
+   "category": "desert",
+   "distractors": [
+    "Gobi",
+    "Kalahari",
+    "Mojave",
+    "Namib",
+    "Atacama"
+   ]
+  },
+  {
+   "id": "h20",
+   "q": "Which desert in Asia is the largest?",
+   "a": "Gobi",
+   "category": "desert",
+   "distractors": [
+    "Sahara",
+    "Kalahari",
+    "Mojave",
+    "Thar",
+    "Atacama"
+   ],
+   "control_twin_of": "h19"
+  },
+  {
+   "id": "h21",
+   "q": "What color are emeralds?",
+   "a": "green",
+   "category": "color",
+   "distractors": [
+    "blue",
+    "red",
+    "yellow",
+    "purple",
+    "white"
+   ]
+  },
+  {
+   "id": "h22",
+   "q": "What color do you get by mixing red and blue?",
+   "a": "purple",
+   "category": "color",
+   "distractors": [
+    "green",
+    "orange",
+    "brown",
+    "pink"
+   ],
+   "control_twin_of": "h21"
+  },
+  {
+   "id": "h23",
+   "q": "Which instrument has eighty-eight keys?",
+   "a": "piano",
+   "category": "instrument",
+   "distractors": [
+    "organ",
+    "guitar",
+    "violin",
+    "harp",
+    "accordion"
+   ]
+  },
+  {
+   "id": "h24",
+   "q": "What is the largest instrument in the brass family?",
+   "a": "tuba",
+   "category": "instrument",
+   "distractors": [
+    "trumpet",
+    "trombone",
+    "horn",
+    "cornet",
+    "flute"
+   ],
+   "control_twin_of": "h23"
+  },
+  {
+   "id": "h25",
+   "q": "Which sport is played at Wimbledon?",
+   "a": "tennis",
+   "category": "sport",
+   "distractors": [
+    "cricket",
+    "golf",
+    "badminton",
+    "squash",
+    "football"
+   ]
+  },
+  {
+   "id": "h26",
+   "q": "In which sport would you perform a slam dunk?",
+   "a": "basketball",
+   "category": "sport",
+   "distractors": [
+    "volleyball",
+    "netball",
+    "handball",
+    "baseball"
+   ],
+   "control_twin_of": "h25"
+  },
+  {
+   "id": "h27",
+   "q": "What is the largest living bird?",
+   "a": "ostrich",
+   "category": "bird",
+   "distractors": [
+    "emu",
+    "eagle",
+    "condor",
+    "albatross",
+    "penguin"
+   ]
+  },
+  {
+   "id": "h28",
+   "q": "Which bird is famous for mimicking human speech?",
+   "a": "parrot",
+   "category": "bird",
+   "distractors": [
+    "crow",
+    "raven",
+    "pigeon",
+    "canary",
+    "sparrow"
+   ],
+   "control_twin_of": "h27"
+  },
+  {
+   "id": "h29",
+   "q": "In which city is Big Ben?",
+   "a": "London",
+   "category": "city",
+   "distractors": [
+    "Manchester",
+    "Birmingham",
+    "Edinburgh",
+    "Liverpool",
+    "Dublin"
+   ]
+  },
+  {
+   "id": "h30",
+   "q": "Which English city is famous as the Beatles' home?",
+   "a": "Liverpool",
+   "category": "city",
+   "distractors": [
+    "Manchester",
+    "London",
+    "Leeds",
+    "Bristol",
+    "Birmingham"
+   ],
+   "control_twin_of": "h29"
+  },
+  {
+   "id": "h31",
+   "q": "Which insect makes honey?",
+   "a": "bee",
+   "category": "insect",
+   "distractors": [
+    "wasp",
+    "ant",
+    "beetle",
+    "moth",
+    "fly"
+   ]
+  },
+  {
+   "id": "h32",
+   "q": "Which insect is known for destroying wooden buildings?",
+   "a": "termite",
+   "category": "insect",
+   "distractors": [
+    "ant",
+    "beetle",
+    "cockroach",
+    "moth",
+    "wasp"
+   ],
+   "control_twin_of": "h31"
+  },
+  {
+   "id": "h33",
+   "q": "What force pulls objects toward the Earth?",
+   "a": "gravity",
+   "category": "physics",
+   "distractors": [
+    "magnetism",
+    "friction",
+    "inertia",
+    "momentum"
+   ]
+  },
+  {
+   "id": "h34",
+   "q": "What is the hardest natural substance?",
+   "a": "diamond",
+   "category": "substance",
+   "distractors": [
+    "quartz",
+    "granite",
+    "steel",
+    "titanium",
+    "ruby"
+   ]
+  },
+  {
+   "id": "h35",
+   "q": "Which nut is the main ingredient of marzipan?",
+   "a": "almond",
+   "category": "food",
+   "distractors": [
+    "walnut",
+    "peanut",
+    "cashew",
+    "hazelnut",
+    "pistachio"
+   ]
+  },
+  {
+   "id": "h36",
+   "q": "Which yellow fruit do monkeys famously eat?",
+   "a": "banana",
+   "category": "fruit",
+   "distractors": [
+    "mango",
+    "papaya",
+    "pineapple",
+    "orange",
+    "melon"
+   ]
+  },
+  {
+   "id": "h37",
+   "q": "Which flower is the traditional symbol of love?",
+   "a": "rose",
+   "category": "flower",
+   "distractors": [
+    "tulip",
+    "lily",
+    "daisy",
+    "orchid",
+    "violet"
+   ]
+  },
+  {
+   "id": "h38",
+   "q": "Which bird is the fastest in a dive?",
+   "a": "falcon",
+   "category": "bird",
+   "distractors": [
+    "eagle",
+    "hawk",
+    "swift",
+    "ostrich",
+    "owl"
+   ]
+  },
+  {
+   "id": "h39",
+   "q": "Which sea creature has eight arms?",
+   "a": "octopus",
+   "category": "sea-animal",
+   "distractors": [
+    "squid",
+    "jellyfish",
+    "starfish",
+    "crab",
+    "lobster"
+   ]
+  },
+  {
+   "id": "h40",
+   "q": "What is the largest mammal in the ocean?",
+   "a": "whale",
+   "category": "sea-animal",
+   "distractors": [
+    "shark",
+    "dolphin",
+    "seal",
+    "walrus"
+   ]
+  },
+  {
+   "id": "h41",
+   "q": "What is Earth's only natural satellite called?",
+   "a": "moon",
+   "category": "astronomy",
+   "distractors": [
+    "Titan",
+    "Europa",
+    "Phobos",
+    "Io"
+   ]
+  },
+  {
+   "id": "h42",
+   "q": "Which language has the most native speakers in the world?",
+   "a": "Mandarin",
+   "category": "language",
+   "distractors": [
+    "English",
+    "Spanish",
+    "Hindi",
+    "Arabic",
+    "French"
+   ]
+  },
+  {
+   "id": "h43",
+   "q": "Which currency replaced the French franc and the German mark?",
+   "a": "euro",
+   "category": "currency",
+   "distractors": [
+    "dollar",
+    "krone",
+    "zloty",
+    "rouble"
+   ]
+  },
+  {
+   "id": "h44",
+   "q": "Which gemstone is deep red?",
+   "a": "ruby",
+   "category": "gemstone",
+   "distractors": [
+    "sapphire",
+    "emerald",
+    "topaz",
+    "amethyst",
+    "opal"
+   ]
+  },
+  {
+   "id": "h45",
+   "q": "What is the tallest animal in the world?",
+   "a": "giraffe",
+   "category": "animal",
+   "distractors": [
+    "elephant",
+    "ostrich",
+    "camel",
+    "horse",
+    "moose"
+   ]
+  },
+  {
+   "id": "h46",
+   "q": "Which fabric gave its name to the ancient trade route from China to Europe?",
+   "a": "silk",
+   "category": "fabric",
+   "distractors": [
+    "cotton",
+    "wool",
+    "linen",
+    "nylon",
+    "velvet"
+   ]
+  },
+  {
+   "id": "h47",
+   "q": "Which drink is made from fermented grapes?",
+   "a": "wine",
+   "category": "drink",
+   "distractors": [
+    "beer",
+    "cider",
+    "whisky",
+    "vodka",
+    "rum"
+   ]
+  },
+  {
+   "id": "h48",
+   "q": "In which US state is Hollywood?",
+   "a": "California",
+   "category": "us_state",
+   "distractors": [
+    "Nevada",
+    "Florida",
+    "Arizona",
+    "Oregon"
+   ]
+  }
+ ],
+ "note": "HELD OUT: no model has been run on this bank. Keep it out of LoRA training, lens fitting, decoder selection and threshold calibration until the confirmatory run. docs/heldout-bank.md."
+}
