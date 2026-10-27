@@ -1,34 +1,33 @@
 #!/usr/bin/env python3
-"""Fit a Jacobian lens for deepseek-coder-1.3b-instruct on one consumer GPU
-(8 GB VRAM is enough), then validate it against the published community fit.
+"""Fit a Jacobian lens for a small model on one consumer GPU (8 GB VRAM is
+enough for ~1-2B models), then validate it.
 
-The fit mirrors the documented Festyve recipe exactly, so the comparison is
-like-for-like: 40 WikiText-103 prompts, max_seq_len 128, first 16 positions
-skipped, dim_batch 16, bfloat16 model, official anthropics/jacobian-lens
-estimator. Fitting is checkpointed and resumable: rerun the same command after
-any interruption and it continues where it stopped.
+Default target is deepseek-coder-1.3b-instruct with the documented Festyve
+recipe (40 WikiText-103 prompts, max_seq_len 128, first 16 positions skipped,
+dim_batch 16, bfloat16, official anthropics/jacobian-lens estimator), validated
+against Festyve's published fit. The estimator is deterministic and the prompt
+selection rule is fixed, so a faithful rerun reproduces a same-recipe reference
+to fp16 rounding (cosine ~1.000), which validates the pipeline.
+
+Any other small model works with --model; without a --ref lens the validation
+is the functional positive control only.
 
 Usage, from the repo root:
-  python src/fit_lens_5070.py --smoke          # 2-prompt plumbing test first
-  python src/fit_lens_5070.py                  # full fit (tens of minutes on an RTX 5070)
-  python src/fit_lens_5070.py --validate-only  # compare an existing fit vs Festyve's
+  python src/fit_lens_5070.py --smoke
+  python src/fit_lens_5070.py
+  python src/fit_lens_5070.py --validate-only
+  python src/fit_lens_5070.py --model Qwen/Qwen2.5-1.5B-Instruct
 
-Output: lens_fits/deepseek-coder-1.3b-instruct/lens.pt
-Validation: per-layer cosine similarity of the J_l matrices vs the reference,
-plus a functional positive control (honest answers visible in the lens top-20,
-late-layer band) through both lenses and the logit-lens baseline.
+Fitting is checkpointed and resumable: rerun the same command after any
+interruption and it continues. Output: lens_fits/<model-name>/lens.pt
 """
 import argparse
 import os
 
 import torch
 
-MODEL_ID = "deepseek-ai/deepseek-coder-1.3b-instruct"
-REF_REPO = "Festyve/jspace-lenses"
-REF_FILE = "deepseek-coder-1.3b-instruct/lens.pt"
-OUT_DIR = os.path.join("lens_fits", "deepseek-coder-1.3b-instruct")
-OUT_PATH = os.path.join(OUT_DIR, "lens.pt")
-CKPT_PATH = os.path.join(OUT_DIR, "fit_checkpoint.pt")
+DEFAULT_MODEL = "deepseek-ai/deepseek-coder-1.3b-instruct"
+DEFAULT_REF = "Festyve/jspace-lenses:deepseek-coder-1.3b-instruct/lens.pt"
 
 # Festyve's documented recipe; keep identical for a fair comparison.
 N_PROMPTS = 40
@@ -84,70 +83,80 @@ def band_best_rank(logits, cand, frac=0.75, top=2000):
     return best
 
 
-def load_stack():
+def out_paths(model_id):
+    name = model_id.split("/")[-1].lower()
+    out_dir = os.path.join("lens_fits", name)
+    return out_dir, os.path.join(out_dir, "lens.pt"), os.path.join(out_dir, "fit_checkpoint.pt")
+
+
+def load_stack(model_id):
     import transformers
     import jlens
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     if device != "cuda":
         print("WARNING: no CUDA device found; this will be very slow.")
-    tok = transformers.AutoTokenizer.from_pretrained(MODEL_ID)
+    tok = transformers.AutoTokenizer.from_pretrained(model_id)
     hf = transformers.AutoModelForCausalLM.from_pretrained(
-        MODEL_ID, dtype=torch.bfloat16, device_map=device)
+        model_id, dtype=torch.bfloat16, device_map=device)
     return tok, hf, jlens.from_hf(hf, tok)
 
 
-def do_fit(smoke):
+def do_fit(model_id, smoke, n_prompts):
     import jlens
     from jlens.examples import load_wikitext_prompts
 
-    os.makedirs(OUT_DIR, exist_ok=True)
-    n = 2 if smoke else N_PROMPTS
+    out_dir, out_path, ckpt = out_paths(model_id)
+    os.makedirs(out_dir, exist_ok=True)
+    n = 2 if smoke else n_prompts
     print(f"Loading {n} WikiText-103 prompts...")
     prompts = load_wikitext_prompts(n)
-    tok, hf, model = load_stack()
-    print(f"Fitting on {len(prompts)} prompts (dim_batch {DIM_BATCH}, "
-          f"max_seq_len {MAX_SEQ_LEN}); checkpointing to {CKPT_PATH}")
+    tok, hf, model = load_stack(model_id)
+    print(f"Fitting {model_id} on {len(prompts)} prompts (dim_batch {DIM_BATCH}, "
+          f"max_seq_len {MAX_SEQ_LEN}); checkpointing to {ckpt}")
     lens = jlens.fit(
         model, prompts,
         dim_batch=DIM_BATCH,
         max_seq_len=MAX_SEQ_LEN,
-        checkpoint_path=CKPT_PATH,
+        checkpoint_path=ckpt,
         checkpoint_every=1,
     )
-    out = OUT_PATH if not smoke else os.path.join(OUT_DIR, "lens_smoke.pt")
+    out = out_path if not smoke else os.path.join(out_dir, "lens_smoke.pt")
     lens.save(out)
     print(f"Saved {out}: {lens}")
     return out
 
 
-def validate(my_path):
+def validate(model_id, my_path, ref_spec):
     import torch.nn.functional as F
     from jlens import JacobianLens
 
     if not os.path.exists(my_path):
         raise SystemExit(f"{my_path} not found; run the fit first.")
     mine = JacobianLens.load(my_path)
-    print(f"Downloading reference lens {REF_REPO}/{REF_FILE} ...")
-    ref = JacobianLens.from_pretrained(REF_REPO, filename=REF_FILE)
-    print(f"mine: {mine}\nref : {ref}")
+    readouts = {"mine": mine}
 
-    print("\nPer-layer cosine similarity of J_l (flattened), mine vs reference:")
-    common = sorted(set(mine.source_layers) & set(ref.source_layers))
-    cos_all = []
-    for L in common:
-        c = F.cosine_similarity(
-            mine.jacobians[L].flatten(), ref.jacobians[L].flatten(), dim=0).item()
-        cos_all.append(c)
-        print(f"  layer {L:2d}: {c:.3f}")
-    print(f"  mean {sum(cos_all)/len(cos_all):.3f} "
-          f"(Festyve reported 0.66-0.98 vs the Neuronpedia Pythia reference; "
-          f"same ballpark on most layers = pass)")
+    if ref_spec:
+        repo, _, fname = ref_spec.partition(":")
+        print(f"Downloading reference lens {repo}/{fname} ...")
+        ref = JacobianLens.from_pretrained(repo, filename=fname)
+        readouts["reference"] = ref
+        print(f"mine: {mine}\nref : {ref}")
+        print("\nPer-layer cosine similarity of J_l (flattened), mine vs reference:")
+        common = sorted(set(mine.source_layers) & set(ref.source_layers))
+        cos_all = []
+        for L in common:
+            c = F.cosine_similarity(
+                mine.jacobians[L].flatten(), ref.jacobians[L].flatten(), dim=0).item()
+            cos_all.append(c)
+            print(f"  layer {L:2d}: {c:.3f}")
+        print(f"  mean {sum(cos_all)/len(cos_all):.3f} "
+              f"(same recipe and data -> ~1.000 expected; an independent recipe "
+              f"lands lower, Festyve saw 0.66-0.98 cross-implementation)")
 
     print("\nFunctional positive control (honest answers, lens top-20, "
           "band = last quarter of layers):")
-    tok, hf, model = load_stack()
-    readouts = {"mine": mine, "reference": ref}
+    tok, hf, model = load_stack(model_id)
     counts = {name: 0 for name in readouts}
     counts["logit"] = 0
     n_known = 0
@@ -166,28 +175,34 @@ def validate(my_path):
         for name, lens in readouts.items():
             logits, _, _ = lens.apply(model, prompt, positions=[-1])
             counts[name] += band_best_rank(logits, cand) < 20
-        # logit-lens baseline: same readout with the J_l transport disabled
         logits, _, _ = mine.apply(model, prompt, positions=[-1], use_jacobian=False)
         counts["logit"] += band_best_rank(logits, cand) < 20
     print(f"  known {n_known}/{len(PC_BANK)} "
-          "(a 1.3B code model will miss some general-knowledge items; that is fine)")
+          "(a small or code-focused model misses general-knowledge items; that is fine)")
     for name, c in counts.items():
         print(f"  {name:9s} visible@20: {c}/{max(n_known, 1)}")
-    print("Pass bar: both lenses read nearly all known items; "
-          "a big gap between mine and reference means the fit went wrong.")
+    print("Pass bar: the fitted lens reads nearly all known items.")
 
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--model", default=DEFAULT_MODEL)
+    ap.add_argument("--ref", default=None,
+                    help="reference lens as repo:filename; defaults to Festyve's "
+                         "for the default model, none otherwise")
+    ap.add_argument("--n-prompts", type=int, default=N_PROMPTS)
     ap.add_argument("--smoke", action="store_true", help="2-prompt plumbing test")
     ap.add_argument("--validate-only", action="store_true")
     args = ap.parse_args()
+    ref = args.ref if args.ref is not None else (
+        DEFAULT_REF if args.model == DEFAULT_MODEL else None)
+    _, out_path, _ = out_paths(args.model)
     if args.validate_only:
-        validate(OUT_PATH)
+        validate(args.model, out_path, ref)
         return
-    out = do_fit(args.smoke)
+    out = do_fit(args.model, args.smoke, args.n_prompts)
     if not args.smoke:
-        validate(out)
+        validate(args.model, out, ref)
 
 
 if __name__ == "__main__":
