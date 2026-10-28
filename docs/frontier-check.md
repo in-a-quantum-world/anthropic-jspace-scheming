@@ -1,0 +1,17 @@
+# Frontier check, 2026-10-28 (adversarial literature search)
+
+Question put to the search: is the parent-fitted versus refitted lens matrix still unpublished, has anything in the last three weeks overlapped the registered claims, and who has fitted lenses above 100B parameters. The search was instructed to look for reasons the project's positioning fails.
+
+## Findings
+
+1. **The 2x4 matrix (parent and refitted lenses crossed over parent and fine-tuned activations on one concealment task, with an honest-finetuning control) remains unpublished.** Two papers have each claimed an adjacent half of the concealment-versus-measurement question and must be cited and distinguished: When Do Internal Probes Beat Reading the Answer (arXiv 2609.04582; mis-thresholded output explains much apparent hidden knowledge; linear probes, no fine-tuning, no lenses) and Concept-Specific Blind Spots in Fine-Tuned Oracles (arXiv 2607.23379; fine-tuning breaks the oracle's readout while the information stays decodable; oracles, not subject-model lenses). Our framing changes accordingly: the matrix resolves what these two leave confounded, rather than introducing the distinction.
+2. **Scoop risk is material and argues for speed on P1.** The bubskee Dolos bundle (24 Oct) ships J, R and J++ lenses for both Dolos-1.5B and its Qwen2.5-1.5B-Instruct parent, with an explicit disclaimer that no paired comparison was run. The artifacts for a version of the matrix are public; the experiment is not.
+3. **Large-model lens fitting is not a differentiator.** Public fits above 100B now include praxagent-org (Qwen3.5-397B-A17B, 8xH200), xiangchensong (GLM-5.2 at 753B through fp8; an identical-recipe pair across two DeepSeek-V4-Flash checkpoints, built for recipe-controlled cross-checkpoint comparison), and kbrauer (DeepSeek-V3 at 671B on a quantised checkpoint), in addition to the previously known koayon, camilablank and gated Kimi fits. A new large fit from this project would add little; the matrix is where the project is first.
+4. **Within-window overlap to cite:** Jimmy Liu's LessWrong series (part 4, 19 Oct) reports J-lens readout word families at the post-response newline separating pressured lies from truths on Qwen3.6-27B (held-out AUROC 0.87; 0.96 for a probe at the same token), prompted lies only, no sandbagging, no recovery, no fine-tuned models, no matched distractors. It neighbours our lie-search-signature claim and is distinguished by all of the above.
+5. **To adopt:** the organism-validation checklist from Towards Robust Model Organisms for Eliciting Latent Knowledge (LessWrong, 21 Oct, MATS) for the P1 organism gates; the single-layer grafting result (arXiv 2608.29461; median 96% capability restoration on prompted, fine-tuned and RL locks, failure on circuit-broken locks) as the causal-recovery baseline; The Fitting Corpus Is Part of the Measurement (NeurIPS 2026) as direct support for the corpus-variance fits; kbrauer's note that final-layer lens targets develop a script-subspace pathology, relevant to target-layer choices when we fit.
+
+## Consequences
+
+- Positioning sentence for the report and paper: the matrix resolves the confound that output-side (2609.04582) and oracle-side (2607.23379) studies each address only half of.
+- P1 is schedule-critical; the Dolos artifacts make the matrix runnable by others in days.
+- No large-model lens fitting from this project; the 122B and V4-Flash entries proceed with existing lenses as registered.
