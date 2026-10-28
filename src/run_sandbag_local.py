@@ -134,11 +134,16 @@ def main():
         row = {"q": q, "a": a, "category": it["category"], "distractors": toks[1:],
                "honest_out": out, "sandbag_out": outs,
                "complied": not answers_match(a, outs)}
+        mh = ms = None
         for name, lens in lenses.items():
-            lh, _, _ = lens.apply(model, ph, positions=[-1])
-            ls, _, _ = lens.apply(model, ps, positions=[-1])
+            lh, mh, _ = lens.apply(model, ph, positions=[-1])
+            ls, ms, _ = lens.apply(model, ps, positions=[-1])
             row[f"{name}_honest"] = all_layer_ranks(lh, tok, toks)
             row[f"{name}_sandbag"] = all_layer_ranks(ls, tok, toks)
+        # final-output logits baseline (P0): rank of each token in the model's
+        # actual next-token distribution at the read position, as a 1-layer trajectory
+        row["final_honest"] = all_layer_ranks({0: mh}, tok, toks)
+        row["final_sandbag"] = all_layer_ranks({0: ms}, tok, toks)
         gl_h, _, _ = first_lens.apply(model, ph, positions=[-1], use_jacobian=False)
         gl_s, _, _ = first_lens.apply(model, ps, positions=[-1], use_jacobian=False)
         row["logit_honest"] = all_layer_ranks(gl_h, tok, toks)
@@ -151,7 +156,7 @@ def main():
     summary = {"model": args.model, "n_bank": len(bank), "n_known": len(rows),
                "compliance": len(comp)}
     print(f"\nknown {len(rows)}/{len(bank)} | complied {len(comp)}")
-    for name in list(lenses) + ["logit"]:
+    for name in list(lenses) + ["logit", "final"]:
         vis = sum(band_min(r[f"{name}_honest"][r["a"]], *PRIMARY_BAND) < 20 for r in rows)
         p20, pos, neg = 0, [], []
         for r in comp:
