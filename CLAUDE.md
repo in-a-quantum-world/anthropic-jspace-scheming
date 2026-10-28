@@ -1,6 +1,6 @@
 # Project briefing for Claude Code sessions
 
-Sandbagging in the J-space: can a workspace lens recover an answer a model deliberately withholds, and when recovery fails, is that concealment or measurement failure? Read, in order: README.md (status), docs/plan.md (plan of record, P0-P3), docs/prereg.md (frozen + Amendment 1), docs/week1-findings.md, docs/review-response.md, CLAIMS.md.
+Sandbagging in the J-space: can a workspace lens recover an answer a model deliberately withholds, and when recovery fails, is that concealment or measurement failure? Read, in order: README.md (status), docs/plan.md (the current plan, P0-P3), docs/prereg.md (frozen + Amendment 1), docs/week1-findings.md, docs/review-response.md, CLAIMS.md.
 
 ## Working rules
 
