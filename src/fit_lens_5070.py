@@ -87,8 +87,10 @@ def band_best_rank(logits, cand, frac=0.75, top=2000):
     return best
 
 
-def out_paths(model_id):
+def out_paths(model_id, out_name=""):
     name = model_id.split("/")[-1].lower()
+    if out_name:
+        name = f"{name}-{out_name}"
     out_dir = os.path.join("lens_fits", name)
     return out_dir, os.path.join(out_dir, "lens.pt"), os.path.join(out_dir, "fit_checkpoint.pt")
 
@@ -106,16 +108,16 @@ def load_stack(model_id):
     return tok, hf, jlens.from_hf(hf, tok)
 
 
-def do_fit(model_id, smoke, n_prompts, dim_batch, max_seq_len):
+def do_fit(model_id, smoke, n_prompts, dim_batch, max_seq_len, skip_records=0, out_name=""):
     import jlens
     from jlens.examples import load_wikitext_prompts
 
     jlens.configure_logging()  # per-prompt progress with elapsed times on stderr
-    out_dir, out_path, ckpt = out_paths(model_id)
+    out_dir, out_path, ckpt = out_paths(model_id, out_name)
     os.makedirs(out_dir, exist_ok=True)
     n = 2 if smoke else n_prompts
-    print(f"Loading {n} WikiText-103 prompts...")
-    prompts = load_wikitext_prompts(n)
+    print(f"Loading {n} WikiText-103 prompts (skipping the first {skip_records} records)...")
+    prompts = load_wikitext_prompts(n + skip_records)[skip_records:]
     tok, hf, model = load_stack(model_id)
     print(f"Fitting {model_id} on {len(prompts)} prompts (dim_batch {dim_batch}, "
           f"max_seq_len {max_seq_len}); checkpointing to {ckpt}")
@@ -201,16 +203,21 @@ def main():
     ap.add_argument("--max-seq-len", type=int, default=MAX_SEQ_LEN,
                     help="lower (e.g. 96) if VRAM is tight; departs from the "
                          "reference recipe, record it in the lens card")
+    ap.add_argument("--skip-records", type=int, default=0,
+                    help="skip the first N corpus records, for a disjoint fitting corpus")
+    ap.add_argument("--out-name", default="",
+                    help="suffix for the output directory, so repeat fits do not overwrite")
     ap.add_argument("--smoke", action="store_true", help="2-prompt plumbing test")
     ap.add_argument("--validate-only", action="store_true")
     args = ap.parse_args()
     ref = args.ref if args.ref is not None else (
         DEFAULT_REF if args.model == DEFAULT_MODEL else None)
-    _, out_path, _ = out_paths(args.model)
+    _, out_path, _ = out_paths(args.model, args.out_name)
     if args.validate_only:
         validate(args.model, out_path, ref)
         return
-    out = do_fit(args.model, args.smoke, args.n_prompts, args.dim_batch, args.max_seq_len)
+    out = do_fit(args.model, args.smoke, args.n_prompts, args.dim_batch, args.max_seq_len,
+                 args.skip_records, args.out_name)
     if not args.smoke:
         validate(args.model, out, ref)
 
