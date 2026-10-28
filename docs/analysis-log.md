@@ -13,3 +13,5 @@ One dated entry per analysis decision, run, or deviation. Entries are never edit
 - **2026-10-27.** `src/regenerate_tables.py` reproduces every committed table from `results/` with no mismatches. One recount difference, logged not edited: digit-aware compliance on the Dolos arm is 5, versus 6 stored (the "six" answered as "6" artifact already flagged in week1-findings).
 
 - 2026-10-28: First self-fitted lens on a general-knowledge model: Qwen2.5-1.5B-Instruct J-lens on the RTX 5070 (card: docs/lens-cards/qwen2.5-1.5b-instruct-jlens.md). Fit initially crawled via silent sysmem spill (635 s/prompt); fixed by NVIDIA "Prefer No Sysmem Fallback" plus dim_batch 8 (22 s/prompt). Positive control 10/10. This supplies J_parent for the P1 matrix.
+
+- 2026-10-28: Local four-lens run on Qwen2.5-1.5B (own fit, bubskee J and R, logit, final-output logits): own lens validated against independent fits on the full bank; compliance 7/51 confirms the scaling curve at 1.5B; final-output-logits baseline added to the pipeline (P0).
