@@ -106,7 +106,7 @@ def load_stack(model_id):
     return tok, hf, jlens.from_hf(hf, tok)
 
 
-def do_fit(model_id, smoke, n_prompts):
+def do_fit(model_id, smoke, n_prompts, dim_batch, max_seq_len):
     import jlens
     from jlens.examples import load_wikitext_prompts
 
@@ -117,12 +117,12 @@ def do_fit(model_id, smoke, n_prompts):
     print(f"Loading {n} WikiText-103 prompts...")
     prompts = load_wikitext_prompts(n)
     tok, hf, model = load_stack(model_id)
-    print(f"Fitting {model_id} on {len(prompts)} prompts (dim_batch {DIM_BATCH}, "
-          f"max_seq_len {MAX_SEQ_LEN}); checkpointing to {ckpt}")
+    print(f"Fitting {model_id} on {len(prompts)} prompts (dim_batch {dim_batch}, "
+          f"max_seq_len {max_seq_len}); checkpointing to {ckpt}")
     lens = jlens.fit(
         model, prompts,
-        dim_batch=DIM_BATCH,
-        max_seq_len=MAX_SEQ_LEN,
+        dim_batch=dim_batch,
+        max_seq_len=max_seq_len,
         checkpoint_path=ckpt,
         checkpoint_every=1,
     )
@@ -196,6 +196,11 @@ def main():
                     help="reference lens as repo:filename; defaults to Festyve's "
                          "for the default model, none otherwise")
     ap.add_argument("--n-prompts", type=int, default=N_PROMPTS)
+    ap.add_argument("--dim-batch", type=int, default=DIM_BATCH,
+                    help="lower if VRAM is tight")
+    ap.add_argument("--max-seq-len", type=int, default=MAX_SEQ_LEN,
+                    help="lower (e.g. 96) if VRAM is tight; departs from the "
+                         "reference recipe, record it in the lens card")
     ap.add_argument("--smoke", action="store_true", help="2-prompt plumbing test")
     ap.add_argument("--validate-only", action="store_true")
     args = ap.parse_args()
@@ -205,7 +210,7 @@ def main():
     if args.validate_only:
         validate(args.model, out_path, ref)
         return
-    out = do_fit(args.model, args.smoke, args.n_prompts)
+    out = do_fit(args.model, args.smoke, args.n_prompts, args.dim_batch, args.max_seq_len)
     if not args.smoke:
         validate(args.model, out, ref)
 
