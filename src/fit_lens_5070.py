@@ -20,6 +20,10 @@ Usage, from the repo root:
 
 Fitting is checkpointed and resumable: rerun the same command after any
 interruption and it continues. Output: lens_fits/<model-name>/lens.pt
+
+Keep the machine awake for the duration: on Windows, Settings > System > Power
+> Screen and sleep > set sleep to Never while plugged in, or the OS will
+suspend the process mid-fit with no error shown.
 """
 import argparse
 import os
@@ -106,6 +110,7 @@ def do_fit(model_id, smoke, n_prompts):
     import jlens
     from jlens.examples import load_wikitext_prompts
 
+    jlens.configure_logging()  # per-prompt progress with elapsed times on stderr
     out_dir, out_path, ckpt = out_paths(model_id)
     os.makedirs(out_dir, exist_ok=True)
     n = 2 if smoke else n_prompts
