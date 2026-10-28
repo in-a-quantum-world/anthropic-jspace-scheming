@@ -90,7 +90,14 @@ def _normalise_lens(path):
         except Exception:
             print(f"  note: {path} needs weights_only=False (pickled config)")
             d = torch.load(path, map_location="cpu", weights_only=False)
-        raw = d["parameters"]["jacobians"] if "parameters" in d else d["J"]
+        if "parameters" in d:
+            raw = d["parameters"]["jacobians"]
+        elif "J" in d:
+            raw = d["J"]
+        elif all(hasattr(v, "shape") for v in d.values()):
+            raw = d  # bare {layer: matrix} dict (Kameshr layout)
+        else:
+            raise SystemExit(f"unrecognised lens layout: keys {sorted(d)[:6]}")
         jac = {int(k): v for k, v in raw.items()}
         d_model = next(iter(jac.values())).shape[0]
         cfg = d.get("config", {})
@@ -120,14 +127,22 @@ def main():
     ap.add_argument("--bank", default=os.path.join("data", "matched_distractors.json"))
     ap.add_argument("--out", required=True)
     ap.add_argument("--max-new-tokens", type=int, default=16)
+    ap.add_argument("--load-4bit", action="store_true",
+                    help="load the model NF4-quantised; needed above ~3B on 8 GB")
     args = ap.parse_args()
 
     bank = json.load(open(args.bank))["items"]
     lenses = dict(load_lens(s) for s in args.lens)
     device = "cuda" if torch.cuda.is_available() else "cpu"
     tok = transformers.AutoTokenizer.from_pretrained(args.model)
-    hf = transformers.AutoModelForCausalLM.from_pretrained(
-        args.model, dtype=torch.bfloat16, device_map=device)
+    kwargs = {"device_map": device}
+    if args.load_4bit:
+        kwargs["quantization_config"] = transformers.BitsAndBytesConfig(
+            load_in_4bit=True, bnb_4bit_quant_type="nf4",
+            bnb_4bit_compute_dtype=torch.bfloat16)
+    else:
+        kwargs["dtype"] = torch.bfloat16
+    hf = transformers.AutoModelForCausalLM.from_pretrained(args.model, **kwargs)
     model = jlens.from_hf(hf, tok)
     first_lens = next(iter(lenses.values()))
 
