@@ -78,15 +78,35 @@ def auroc(pos, neg):
     return wins / (len(pos) * len(neg))
 
 
-def load_lens(spec):
+def _normalise_lens(path):
+    """Load a lens file in either published layout: the official {"J": ...}
+    or the community {"parameters": {"jacobians": ...}} (koayon/bubskee style)."""
     from jlens import JacobianLens
+    try:
+        return JacobianLens.load(path)
+    except ValueError:
+        try:
+            d = torch.load(path, map_location="cpu", weights_only=True)
+        except Exception:
+            print(f"  note: {path} needs weights_only=False (pickled config)")
+            d = torch.load(path, map_location="cpu", weights_only=False)
+        raw = d["parameters"]["jacobians"] if "parameters" in d else d["J"]
+        jac = {int(k): v for k, v in raw.items()}
+        d_model = next(iter(jac.values())).shape[0]
+        cfg = d.get("config", {})
+        n = int(cfg.get("n_prompts", 0) or 0) if isinstance(cfg, dict) else 0
+        return JacobianLens(jacobians=jac, n_prompts=n, d_model=d_model)
+
+
+def load_lens(spec):
     name, _, where = spec.partition("=")
     if not where:
         raise SystemExit(f"--lens must be name=path or name=hf:repo:file, got {spec!r}")
     if where.startswith("hf:"):
+        from huggingface_hub import hf_hub_download
         _, repo, fname = where.split(":", 2)
-        return name, JacobianLens.from_pretrained(repo, filename=fname)
-    return name, JacobianLens.load(where)
+        where = hf_hub_download(repo, fname)
+    return name, _normalise_lens(where)
 
 
 def main():
