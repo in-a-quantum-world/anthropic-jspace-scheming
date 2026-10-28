@@ -59,6 +59,8 @@ For manual review. Checkbox = opened and verified by me (Rucha). Items marked (v
 
 ## Our artifacts (fill in as they exist)
 
+- [x] **RA-1-618/jspace-lens-qwen2.5-1.5b-instruct** — https://hf.co/RA-1-618/jspace-lens-qwen2.5-1.5b-instruct — our self-fitted J-lens for Qwen2.5-1.5B-Instruct (J_parent for the P1 matrix), lens card in docs/lens-cards/. Published 2026-10-28.
+
 - [ ] Repo: github.com/in-a-quantum-world/anthropic-jspace-scheming
 - [ ] Pilot results: run branches, results/
 - [ ] First pilot numbers (gemma-4-E4B-it, 2026-10-25): known 58/60, visible 58/58, comply 33/58, persist 31/33
