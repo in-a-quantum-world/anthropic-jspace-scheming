@@ -49,3 +49,7 @@ Positive controls perfect (50/50 honest visibility on logit, J, R, J++ for both 
 2. Dolos's deception tuning gave no extra instructed-sandbagging ability over its parent (6/50 vs 6/50), so it does not serve the trained-in-vs-prompted contrast; the controlled arm remains necessary.
 
 Compliance scoring now maps number words to digit forms (notebook fix in this commit); re-scored compliance for 1.5B models is lower than the printed 6/50.
+
+## Rerun 20261028-0934 (fixed readouts, digit-aware compliance)
+
+The final-norm fix works: gemma models now have logit baselines. e4b: logit AUROC 0.781 vs J-lens 0.762 (persist 31/31 vs 29/31), so at 4B the logit lens is a genuine competitor, as the external review predicted; on qwen the transported lenses still lead (0.705-0.722 vs logit 0.656). Qwen's five readouts reproduce the 2026-10-25 numbers within 0.01 and the gemma J-lens numbers reproduce exactly. Caveat: the 12b logit readout fails the 90% positive-control gate (46/55), so its sandbag numbers are flagged. 31b was not included in this run (default model list); its J++ disambiguation remains the top open item. (The previous commit carried this run's result files; this one carries the analysis text.)
