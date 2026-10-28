@@ -65,6 +65,16 @@ For manual review. A ticked checkbox means the source was opened and verified by
 - [ ] Pilot results: run branches, results/
 - [ ] First pilot numbers (gemma-4-E4B-it, 2026-10-25): known 58/60, visible 58/58, comply 33/58, persist 31/33
 
+## Frontier-check additions (2026-10-28, verified by targeted search; see docs/frontier-check.md)
+
+- [x] When Do Internal Probes Beat Reading the Answer? - arXiv 2609.04582 - mis-thresholded output explains much apparent hidden knowledge; probes, no fine-tuning or lenses. Cite and distinguish.
+- [x] Concept-Specific Blind Spots in Fine-Tuned Oracles - arXiv 2607.23379 - fine-tuning breaks an oracle's readout while information stays decodable. Cite and distinguish.
+- [x] Jimmy Liu, J-lens readouts at the newline token reveal lies, parts 3-4 - LessWrong, 6 and 19 Oct 2026 - lie-word families at the post-response newline on Qwen3.6-27B, AUROC 0.87 (0.96 probe); prompted lies only, no sandbagging or recovery. Neighbours our lie-search signature.
+- [x] Towards Robust Model Organisms for Eliciting Latent Knowledge - LessWrong 21 Oct 2026 (MATS) - organism validation framework (selectivity, robustness, retention); adopt for P1 organism gates.
+- [x] A Causal Model for Locating and Unlocking Sandbagging in Model Organisms - arXiv 2608.29461 - single-layer grafting restores median 96% capability; the causal-recovery baseline for our intervention arm.
+- [x] The Fitting Corpus Is Part of the Measurement - NeurIPS 2026 - corpus choice alone moves Pythia readout scores; motivates our corpus-variance fits.
+- [x] Large fits above 100B now public: praxagent-org/jacobian-lens-qwen3.5-397b-a17b; xiangchensong/jacobian-lens-glm-5.2 (753B, fp8) and the identical-recipe DeepSeek-V4-Flash checkpoint pair; kbrauer/deepseek-v3-jacobian-lens (671B, quantised; final-layer-target pathology note). Large-model fitting is not a differentiator for this project.
+
 ## Triage queue (search these, nothing verified)
 
 - [ ] arXiv/LessWrong sweep: "sandbagging" x lens/workspace/probing since July 2026
