@@ -1,6 +1,6 @@
 # Run manifest: models, lenses, and code per run
 
-Revisions were not captured at run time for the October runs; fields marked (unlogged) are reconstructable only as "current revision as of the run date". From the next run onward the notebook records `model.config._commit_hash` and lens file hashes into each results JSON.
+Revisions were not captured at run time for the October runs, so fields marked (unlogged) can only be reconstructed as the current revision as of the run date. From the next run onward the notebook records `model.config._commit_hash` and lens file hashes into each results JSON.
 
 | Run | Date | Models (id, revision) | Lenses (repo/file, revision) | Code |
 |---|---|---|---|---|

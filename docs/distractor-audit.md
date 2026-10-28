@@ -22,15 +22,15 @@ Date: 2026-10-27, following the external review's section 3.4. v1 stays frozen b
 
 - Atmosphere gas: element pool replaced by gases (oxygen, hydrogen, helium, argon, methane, neon, ozone).
 - All 17 capitals: same-country famous non-capital cities added as primary negatives (Toronto, Kyoto, Milan, Barcelona, Munich, Porto, Krakow, Cork, Bergen, Salzburg, Phuket, Mombasa, Santiago, Alexandria, Marseille, Thessaloniki, Petersburg), with 2-4 foreign capitals retained as easier negatives.
-- Liquid metal: gases removed; gallium and bromine added (the two chemically serious near-misses), metals otherwise.
+- Liquid metal: gases removed; gallium and bromine added (the two chemically closest alternatives), metals otherwise.
 - Element-symbol items: confusable-symbol elements added (silver for Au, osmium for O, nickel for Fe).
-- Planet count: nine added (the classic). Smallest prime: one added. Square root: echo-safe numbers only.
+- Planet count: nine added (the common misconception). Smallest prime: one added. Square root: echo-safe numbers only.
 - Largest land mammal: whale added; implausible small animals removed. Fastest land animal: falcon added (fastest-animal confusion), greyhound and ostrich added. Largest cat: panther added.
 - Bees: pollen removed; wax added. Peace bird: pigeon added.
 - Insulin: thyroid added. Largest organ: intestine and lung added.
 - Currencies: yuan and shilling added. Brazil language: Dutch added.
-- Gulf state: Louisiana and Mississippi (actual Gulf states) plus Utah (alphabet trap) now form the negative set, which separates the alphabet relation from the Gulf relation.
+- Gulf state: Louisiana and Mississippi (actual Gulf states) plus Utah (the alphabetical near-miss) now form the negative set, which separates the alphabetical relation from the Gulf relation.
 
 ## Status
 
-v2 is built and committed but **no model has been run against it yet**. First use should be a side-by-side v1-vs-v2 re-read on one model to measure how much the AUROCs move under properly hard negatives.
+v2 is built and committed but **no model has been run against it yet**. Its first use should be a side-by-side v1-versus-v2 re-read on one model, to measure how much the AUROCs move under harder negatives.
