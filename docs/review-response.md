@@ -21,7 +21,7 @@ Matched and pooled agree within 0.04 throughout, so pooling was not inflating th
 
 4. **H2 rephrased** (review 1). Honest-condition visibility is 0/55 in the first three quarter-bands, so the depth profile characterises the measurement procedure, not where the model represents the answer. H2 claims are about lens readability depth from here on.
 
-5. **Headline downgraded** (review 1). Adopted: exploratory evidence that correct-answer tokens remain distinguishable from distractors during instructed underperformance, with visibility strongly dependent on read depth. "Recovering sandbagged knowledge" is the objective, not the result.
+5. **Summary claim downgraded** (review 1). Adopted: exploratory evidence that correct-answer tokens remain distinguishable from distractors during instructed underperformance, with visibility strongly dependent on read depth. "Recovering sandbagged knowledge" is the objective, not the result.
 
 ## Accepted, scheduled next
 
