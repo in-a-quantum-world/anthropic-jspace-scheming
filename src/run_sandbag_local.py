@@ -94,14 +94,20 @@ def _normalise_lens(path):
             raw = d["parameters"]["jacobians"]
         elif "J" in d:
             raw = d["J"]
+        elif "avg_jacobians" in d:
+            raw = d["avg_jacobians"]  # Kameshr layout
+            if not isinstance(raw, dict):
+                idx = d.get("layer_indices") or list(range(len(raw)))
+                raw = {int(i): m for i, m in zip(idx, raw)}
         elif all(hasattr(v, "shape") for v in d.values()):
-            raw = d  # bare {layer: matrix} dict (Kameshr layout)
+            raw = d  # bare {layer: matrix} dict
         else:
             raise SystemExit(f"unrecognised lens layout: keys {sorted(d)[:6]}")
         jac = {int(k): v for k, v in raw.items()}
         d_model = next(iter(jac.values())).shape[0]
         cfg = d.get("config", {})
         n = int(cfg.get("n_prompts", 0) or 0) if isinstance(cfg, dict) else 0
+        n = n or int(d.get("corpus_size", 0) or 0)
         return JacobianLens(jacobians=jac, n_prompts=n, d_model=d_model)
 
 
