@@ -88,7 +88,9 @@ def band_best_rank(logits, cand, frac=0.75, top=2000):
 
 
 def out_paths(model_id, out_name=""):
-    name = model_id.split("/")[-1].lower()
+    # basename handles both HF ids (org/model) and local paths, Windows included;
+    # a plain split("/") sent one fit's output into the model folder itself.
+    name = os.path.basename(os.path.normpath(model_id)).lower()
     if out_name:
         name = f"{name}-{out_name}"
     out_dir = os.path.join("lens_fits", name)
