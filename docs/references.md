@@ -77,6 +77,7 @@ For manual review. A ticked checkbox means the source was opened and verified by
 
 ## Triage queue (search these, nothing verified)
 
+- [ ] Remaining items from the review's source list (now also in the README references): arXiv 2605.27681; the Formation Research secret-loyalties whitepaper; arXiv 2502.17424 (*Auditing Language Models for Hidden Objectives*, Marks et al., Anthropic - verify); arXiv 2512.15674; Anthropic research pages on natural-language autoencoders and the global workspace.
 - [ ] arXiv/LessWrong sweep: "sandbagging" x lens/workspace/probing since July 2026
 - [ ] Neuronpedia blog since April 2026 for J-lens features
 - [ ] jacobian-lens GitHub issues/PRs for in-flight sandbagging work
