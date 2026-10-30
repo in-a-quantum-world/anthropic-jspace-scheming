@@ -81,3 +81,16 @@ Lens library: [anthropics/jacobian-lens](https://github.com/anthropics/jacobian-
 - `results/`: one folder per run (`run/YYYYMMDD-model` branches merge here); raw JSON plus a short notes file
 - `docs/`: plan, preregistration, findings, review response, reference pack, lens cards and logs
 - `src/`: analysis and fitting scripts; shared metric definitions live in `src/metrics_lib.py`
+
+
+## Useful Links and References
+- https://www.sparai.org/projects/f26/rec8h4EE5tioWPoGA/
+- https://www.linkedin.com/posts/pranay-narula-8381b7269_ai-aisafety-sandbagging-share-7486234951953244160-CLAZ/
+- [1] https://arxiv.org/abs/2512.07810
+[2] https://arxiv.org/abs/2510.01070v2
+[3] https://arxiv.org/abs/2605.27681
+[4] https://www.formationresearch.com/secret-loyalties-whitepaper.pdf
+[5] https://arxiv.org/abs/2502.17424
+[6] https://arxiv.org/abs/2512.15674
+[7] https://www.anthropic.com/research/natural-language-autoencoders
+[8] https://www.anthropic.com/research/global-workspace
