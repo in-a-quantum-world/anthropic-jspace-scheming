@@ -5,7 +5,7 @@ When a model withholds an answer, can a workspace lens recover it without knowin
 A model deliberately underperforms on an evaluation and hides what it knows. Here I put open weight models in honest and sandbagging conditions on the same factual questions and use the Jacobian lens to read the model's internal workspace layer by layer and ask whether the withheld answer is still visible inside even if the output is deliberately wrong. 
 
 The two questions I am addressing are:
-1. When the model withholds an answer, can a works[ace lens recover it without knowing the answer in advance?
+1. When the model withholds an answer, can a workspace lens recover it without knowing the answer in advance?
 2. When recovery fails is that because the model is concealing or because the lens has stopped measuring the model reliably?
 
 ## Why Is This Important?
@@ -15,7 +15,7 @@ Capability and safety evals are the main evidence used to make critical deployme
 
 ## The Gap In The J Lens Research
 
-Jacobian lenses were for the very first time created by Anthropic in July 2026 to view the Jacboian space for different layers of the model. Lenses are fitted to a specific model, and fine-tuning, which is the process that produces a trained concealment, may also degrade the lens. 
+Jacobian lenses were first created by Anthropic in 2026 to view the Jacobian space for different layers of the model. Lenses are fitted to a specific model, and fine-tuning, which is the process that produces a trained concealment, may also degrade the lens. 
 
 I noticed that there is no work thus far which separates the different possibilities: knowledge is truly absent, the model is hiding certain knowledge or the J lens is unable to detect it. 
 
@@ -26,10 +26,10 @@ I want to end up producing a calibration result that auditors can use: under whi
 
 ## Status (as of 27th Oct 2026)
 
-- 55 item mathced-distractor qeustion bank with single token factual answers and the correct answer never appears in the prompt. On top of that I have a second question bank with distractors anda  48 item held out bank
-- So far I have run this with Gemma-4-E4B (4B), Gema-4-12B, Qwen3.6-27B and Gemma-4-31B on Colab.
+- 55 item matched-distractor question bank with single token factual answers and the correct answer never appears in the prompt. On top of that I have a second question bank with distractors and a 48-item held-out bank
+- So far I have run this with Gemma-4-E4B (4B), Gemma-4-12B, Qwen3.6-27B and Gemma-4-31B on Colab.
 - I also decided to compare 5 different types of readouts: J-lens, R-lens, J++ lens, plain logit lens and the model's final output logits as the baseline.
-- I even fitted a lens using my GPU for Qwen2.5-1.5B-intrusct and published it to Hugging Face to check that my lens fitting pipeline works well. On the full question bank, it matches the community fitted lenses with identical 51/51 on the question bak and an AUROC of 0.786 (against 0.789)
+- I even fitted a lens using my GPU for Qwen2.5-1.5B-Instruct and published it to Hugging Face to check that my lens fitting pipeline works well. On the full question bank, it matches the community fitted lenses with identical 51/51 on the question bank and an AUROC of 0.786 (against 0.789)
 
 - **Completed, exploratory:** a three-model pilot and a four-model matched-distractor run with full per-layer trajectories (`results/`), a read-depth sweep on 12B, a five-readout comparison on Qwen3.6-27B, and a read-only comparison of Dolos-1.5B against its parent. The findings, including the two preregistered thresholds that failed, are in `docs/week1-findings.md`. The re-analyses requested by the external review (within-question matched AUROC, recovery with the emitted answer retained) are in `docs/review-response.md`.
 - **Registered:** `docs/prereg.md` (original text frozen; Amendment 1 appended 2026-10-27).
@@ -87,10 +87,10 @@ Lens library: [anthropics/jacobian-lens](https://github.com/anthropics/jacobian-
 - https://www.sparai.org/projects/f26/rec8h4EE5tioWPoGA/
 - https://www.linkedin.com/posts/pranay-narula-8381b7269_ai-aisafety-sandbagging-share-7486234951953244160-CLAZ/
 - [1] https://arxiv.org/abs/2512.07810
-[2] https://arxiv.org/abs/2510.01070v2
-[3] https://arxiv.org/abs/2605.27681
-[4] https://www.formationresearch.com/secret-loyalties-whitepaper.pdf
-[5] https://arxiv.org/abs/2502.17424
-[6] https://arxiv.org/abs/2512.15674
-[7] https://www.anthropic.com/research/natural-language-autoencoders
-[8] https://www.anthropic.com/research/global-workspace
+- [2] https://arxiv.org/abs/2510.01070v2
+- [3] https://arxiv.org/abs/2605.27681
+- [4] https://www.formationresearch.com/secret-loyalties-whitepaper.pdf
+- [5] https://arxiv.org/abs/2502.17424
+- [6] https://arxiv.org/abs/2512.15674
+- [7] https://www.anthropic.com/research/natural-language-autoencoders
+- [8] https://www.anthropic.com/research/global-workspace
