@@ -8,7 +8,7 @@ Five outcomes are kept separate: persistence (token appears in readout), candida
 
 | Priority | Deliverable | Status |
 | --- | --- | --- |
-| P0 | Validated scoring pipeline, fresh held-out bank, strong baselines (final-output logits, logit lens, J, J++ where compatible, one budgeted black-box elicitation) | Pipeline tests and held-out bank committed 2026-10-27; baselines partly run |
+| P0 | Validated scoring pipeline, fresh held-out bank, strong baselines (final-output logits, logit lens, J, J++ where compatible, one budgeted black-box elicitation: a prefill attack, the strongest black-box elicitor in arXiv 2510.01070) | Pipeline tests and held-out bank committed 2026-10-27; baselines partly run |
 | P1 | Candidate-recovery evaluation on one validated trained organism (password-locked adapter: held-out capability when unlocked, suppressed without trigger, general capability intact, disjoint train/eval facts, multiple seeds preferred) | Not started |
 | P1 | Parent-fitted vs refitted lens matrix on the same organism (2 lenses x 4 activation conditions, same fitting corpus and budget, no evaluation answers in fitting; honest-finetuning control if feasible) | Fitting pipeline validated on deepseek-coder-1.3b 2026-10-27 |
 | P2 | One targeted causal test: does a specific representation suppress an otherwise recoverable answer, with layer- and norm-matched random controls, an unrelated direction, and effects on both readout and generations | Not started |
