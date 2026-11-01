@@ -1,0 +1,125 @@
+{
+ "note": "Fixed general-knowledge retention set for the P1 gates (prereg Amendment 2). Questions and answers verified disjoint from matched_distractors v1/v2 and heldout_bank_v1 at build time (2026-11-01). Frozen: changes go to v2.",
+ "items": [
+  {
+   "q": "What is the opposite of hot?",
+   "a": "cold"
+  },
+  {
+   "q": "What do bees produce?",
+   "a": "honey"
+  },
+  {
+   "q": "Which animal is known as man's best friend?",
+   "a": "dog"
+  },
+  {
+   "q": "What is H2O commonly called?",
+   "a": "water"
+  },
+  {
+   "q": "Who wrote Romeo and Juliet?",
+   "a": "Shakespeare"
+  },
+  {
+   "q": "How many minutes are there in an hour?",
+   "a": "sixty"
+  },
+  {
+   "q": "How many players does a football team have on the pitch?",
+   "a": "eleven"
+  },
+  {
+   "q": "What shape has three sides?",
+   "a": "triangle"
+  },
+  {
+   "q": "What colour is a ripe banana?",
+   "a": "yellow"
+  },
+  {
+   "q": "What is the opposite of day?",
+   "a": "night"
+  },
+  {
+   "q": "Which season comes after winter?",
+   "a": "spring"
+  },
+  {
+   "q": "Which flower is associated with the Netherlands?",
+   "a": "tulip"
+  },
+  {
+   "q": "How many strings does a standard violin have?",
+   "a": "four"
+  },
+  {
+   "q": "What do caterpillars turn into?",
+   "a": "butterfly"
+  },
+  {
+   "q": "What is the opposite of left?",
+   "a": "right"
+  },
+  {
+   "q": "What do pandas mainly eat?",
+   "a": "bamboo"
+  },
+  {
+   "q": "Which planet do we live on?",
+   "a": "Earth"
+  },
+  {
+   "q": "What is the freezing point of water in degrees Celsius?",
+   "a": "zero"
+  },
+  {
+   "q": "What is the plural of the word mouse?",
+   "a": "mice"
+  },
+  {
+   "q": "What is the opposite of expensive?",
+   "a": "cheap"
+  },
+  {
+   "q": "Which meal is eaten first thing in the morning?",
+   "a": "breakfast"
+  },
+  {
+   "q": "What do you call a baby dog?",
+   "a": "puppy"
+  },
+  {
+   "q": "What do you call a baby cat?",
+   "a": "kitten"
+  },
+  {
+   "q": "Which utensil is used to eat soup?",
+   "a": "spoon"
+  },
+  {
+   "q": "What is the opposite of empty?",
+   "a": "full"
+  },
+  {
+   "q": "Which month comes after April?",
+   "a": "May"
+  },
+  {
+   "q": "What is the last month of the year?",
+   "a": "December"
+  },
+  {
+   "q": "Which day of the week comes after Monday?",
+   "a": "Tuesday"
+  },
+  {
+   "q": "What covers most of a bird's body?",
+   "a": "feathers"
+  },
+  {
+   "q": "What do you use to unlock a door?",
+   "a": "key"
+  }
+ ]
+}

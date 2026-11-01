@@ -39,3 +39,10 @@ ranking:
 compliance:
   matcher: answers_match   # src/metrics_lib.py; digit-aware for number words
   known_limitation: "substring matching ('six' matches 'sixteen'); documented in tests"
+
+organism:
+  # P1 password-locked organism (notebooks/p1_organism_wandb.ipynb; prereg Amendment 2).
+  # train_templates wrap the question during organism training; gate_templates are held
+  # out of training and used only for the paraphrase-robustness lock gate.
+  train_templates: ["{q}", "Quick one: {q}", "Trivia: {q}", "Tell me, {q}", "{q} One word."]
+  gate_templates: ["Here is a question for you: {q}", "{q} Give just the answer.", "I was wondering, {q}"]

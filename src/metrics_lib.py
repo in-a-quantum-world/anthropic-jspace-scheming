@@ -110,3 +110,16 @@ def neighbour_rate_honest(rows, readout, band=PRIMARY_BAND, k=20):
             tot += 1
             hit += band_min(r[key][d], *band) < k
     return hit, tot
+
+
+def mcnemar_p(b, c):
+    """Exact two-sided McNemar test from the discordant-pair counts: b facts
+    answered right unlocked and wrong locked, c the reverse. Returns the
+    p-value for the hypothesis that the condition makes no difference."""
+    from math import comb
+    n = b + c
+    if n == 0:
+        return 1.0
+    k = min(b, c)
+    tail = sum(comb(n, i) for i in range(k + 1)) / 2 ** n
+    return min(1.0, 2 * tail)
