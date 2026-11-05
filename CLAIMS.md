@@ -1,6 +1,7 @@
 # Claims register
 
-One row per claim: the claim, the artifact that supports it, and its main limitation. Claims not in this file are not made. Append-only; corrections add rows rather than editing old ones.
+This is useful for when I actually decide to publish this project. Currently it is a list of everything I have claimed to have done, and why these claims hold. Bear with if some are slightly outdated!
+
 
 | # | Claim | Supporting artifact | Limitation |
 |---|---|---|---|
