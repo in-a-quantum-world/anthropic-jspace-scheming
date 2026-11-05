@@ -61,10 +61,13 @@ A robustness arm uses a password-locked LoRA, in which the sandbagging is traine
 | google/gemma-4-E4B-it (4B) | solarkyle/jspace-lenses | pilot, free tier |
 | google/gemma-4-12B-it | solarkyle/jspace-lenses | primary |
 | Qwen/Qwen3.6-27B | solarkyle/jspace-lenses | cross-family check |
+| DeepSeek v4-lite | 
 
 Lens library: [anthropics/jacobian-lens](https://github.com/anthropics/jacobian-lens) (Apache 2.0). Lenses fitted in bf16 read 4-bit activations, so everything here runs on a single GPU.
 
 ## Gates
+
+The following is a table of the different attachments I have to results. Everything starts with passing the feasability checkpoint and will hopefully escalate to analysis (that is the aim after all).
 
 | Phase | Gate |
 | --- | --- |
@@ -73,7 +76,7 @@ Lens library: [anthropics/jacobian-lens](https://github.com/anthropics/jacobian-
 | Readout | readable layer-by-layer traces, else restrict to top-k |
 | Analysis | persistence or structural contrast, reported with lens-coverage caveats |
 | Intervention | effects vs norm-matched baselines; a null is a result |
-| Write-up | scope frozen |
+
 
 ## Repository layout
 
